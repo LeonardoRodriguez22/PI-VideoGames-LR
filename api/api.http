@@ -23,8 +23,7 @@ GET http://localhost:3000/?name=Mario
 # ruta para buscar por ID de video juego 
 # en la base de datos y en la api externa
 
-GET http://localhost:3000/videogames/22
-
+GET http://localhost:3000/videogames/f81e384e-7aec-4abe-8180-56b02ee574cb
 ###
 
 # ruta para crear un video juego nuevo 

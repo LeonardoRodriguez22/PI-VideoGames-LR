@@ -1,7 +1,7 @@
 const axios = require("axios");
 require("dotenv").config();
 const { API_KEY } = process.env;
-const { Videogame, Genre } = require("../db");
+const { Videogame, Genres } = require("../db");
 
 const removeHTMLTags = (text) => {
   // Expresión regular para buscar y eliminar las etiquetas HTML
@@ -10,23 +10,35 @@ const removeHTMLTags = (text) => {
 };
 
 const getById = async (req, res) => {
-  const { idVideogame } = req.params;
-  if (idVideogame.includes("-")) {
-    let videogameDb = await Videogame.findOne({
-      where: {
-        id: idVideogame,
+  const { id } = req.params;
+  if (isNaN(id)) {
+    let videogameDb = await Videogame.findByPk(id, {
+      include: {
+        model: Genres,
+        attributes: ["name"],
+        through: { attributes: [] },
       },
-      include: Genre,
     });
+    
+    const filtered = {
+      id: videogameDb.id,
+      name: videogameDb.name,
+        genres: videogameDb.Genres.map((g) => g.name).join(", "),
+        description: videogameDb.description,
+        releaseDate: videogameDb.releaseDate,
+        rating: videogameDb.rating,
+        platforms: videogameDb.platforms,
+    }
+    
     //dejo un array con los nombres de genero solamente
-    videogameDb.genres = videogameDb.genres.map((g) => g.name);
-    res.json(videogameDb);
+    // videogameDb.genres = videogameDb.genres.map((g) => g.name);
+    res.json(filtered);
   } else {
     //else (si no es un juego creado, voy a buscar la info a la API)
     try {
       const response = (
         await axios.get(
-          `https://api.rawg.io/api/games/${idVideogame}?key=${API_KEY}`
+          `https://api.rawg.io/api/games/${id}?key=${API_KEY}`
         )
       ).data;
       let {
