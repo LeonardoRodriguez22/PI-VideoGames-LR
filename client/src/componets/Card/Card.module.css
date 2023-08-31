@@ -1,0 +1,70 @@
+.tarjeta {
+  display: flex;
+  font-size: 0.7em;
+  flex-direction: column;
+  align-items: center;
+  border: solid;
+  border-radius: 30px;
+  margin: auto;
+  box-shadow: -2px -5px 10px 2px #fdfeff;
+  border-style: hidden;
+  margin: auto;
+  margin-top: 130px;
+  margin-left: 40px;
+  margin-right: 40px;
+  background-image: url("https://i.pinimg.com/originals/8f/1c/54/8f1c54c4b4caeb214ada0349c579aa92.gif");
+  background-size: cover;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  border-style: hidden;
+  margin: auto;
+}
+
+h2 {
+  display: flex;
+  font-size: 1.5em;
+  color: rgb(240, 237, 234);
+  width: fit-content;
+  padding: 2px;
+  margin: 2px;
+  /* background-color: #060708; */
+}
+
+.btnClose {
+  font-display: flex;
+  border-radius: 30%;
+  width: fit-content;
+  align-items: center;
+  background-color: rgb(241, 10, 10);
+  color: rgb(226, 226, 226);
+  margin-bottom: 5px;
+}
+
+.btnClose:hover {
+  opacity: 0.7;
+  transition: 1s;
+  border-radius: 7px;
+  background-color: rgb(12, 14, 14);
+  box-shadow: 15px 15px 45px 15px #e9e0e0;
+}
+
+.btnFiltro {
+  font-display: flex;
+  border-radius: 30%;
+  width: fit-content;
+  align-items: center;
+  background-color: rgb(1, 1, 15);
+  color: rgb(86, 141, 5);
+}
+
+.btnFiltro:hover {
+  opacity: 0.7;
+  transition: 1s;
+  border-radius: 7px;
+  background-color: rgb(12, 14, 14);
+  box-shadow: 15px 15px 45px 15px #e9e0e0;
+}

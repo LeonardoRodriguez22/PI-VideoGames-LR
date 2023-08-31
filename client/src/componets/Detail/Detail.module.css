@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1em;
+  flex-wrap: column-wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: rgb(196, 60, 89);
+  font-style: italic;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.name:hover {
+  opacity: 0.7;
+  transition: 1s;
+  border-radius: 7px;
+  background-color: rgb(188, 226, 49);
+  box-shadow: 15px 15px 15px 15px #201e1e;
+}
+
+.btn {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: rgb(196, 60, 89);
+  font-style: italic;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  margin-bottom: 50px;
+  margin-top: 40px;
+}
+.btn:hover {
+  opacity: 0.7;
+  transition: 1s;
+  border-radius: 7px;
+  background-color: aqua;
+  box-shadow: 15px 15px 15px 15px #201e1e;
+}
+
+.imagen {
+  margin-top: 250px;
+  border-radius: 90px;
+  box-shadow: 15px 15px 15px 0 #201e1e;
+}
+
+.video1 {
+  display: flex;
+  background-size: cover;
+  background-clip: content-box;
+}
+

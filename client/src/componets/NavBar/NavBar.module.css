@@ -1,0 +1,36 @@
+.nav {
+  background-color: rgb(12, 12, 245);
+  width: 100%;
+  display:contents;
+  align-items: center;
+  justify-content:flex-end;
+  /* border: inset; */
+  /* border-color: transparent; */
+  /* box-shadow: 10px 10px 87px 10px #201e1e; */
+  /* position: relative; */
+}
+
+.btnHome {
+  background: #373c3c;
+  color: #fff;
+  display: inline-block;
+  font-size: 0.75em;
+  margin: 10px;
+  padding: 5px 0;
+  text-align: center;
+  width: 200px;
+  text-decoration: none;
+  box-shadow: 0px 3px 0px #373c3c;
+  border-radius: 10px;
+}
+
+.btnHome:hover {
+  box-shadow: 0px 0px 0px;
+  padding-top: 7px;
+  cursor: crosshair;
+  box-shadow: 15px 15px 200px 15px #e7e2e2;
+  background-color: white;
+  color: black;
+  transition: 2s;
+  transform: scale(1.5);
+}
