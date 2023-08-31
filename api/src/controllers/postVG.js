@@ -19,10 +19,10 @@ const createVideoGame = async (
 };
 
 const postVideoGames = async (req, res) => {
-  const { name, description, platforms, image, releaseDate, rating, genre } = req.body;
+  const { name, description, platforms, image, releaseDate, rating, genre } =
+    req.body;
 
   try {
-    
     const newVideoGame = await createVideoGame(
       name,
       description,

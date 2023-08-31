@@ -1,9 +1,12 @@
+//                         _0_
 //                       _oo0oo_
 //                      o8888888o
-//                      88" . "88
-//                      (| -_- |)
-//                      0\  =  /0
-//                    ___/`---'\___
+//                    o88888888888o
+//                 o88888888888888888o
+//                       (.) (.)
+//                   (@)|   L   \(@)
+//                    t \   =   | t  
+//                    ___/`---'\___  
 //                  .' \\|     |// '.
 //                 / \\|||  :  |||// \
 //                / _||||| -:- |||||- \
@@ -20,9 +23,9 @@
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 
-// Syncing all the models at once.
+
 conn.sync({ force: true }).then(() => {
   server.listen(3000, () => {
-    console.log('server listening at 3000'); // eslint-disable-line no-console
+    console.log('server listening at 3000'); 
   });
 });
