@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import style from "./Card.module.css";
 
-
 const Card = ({
   name,
   id,
@@ -11,10 +10,8 @@ const Card = ({
   rating,
   platforms,
 }) => {
-
   return (
     <div className={style.tarjeta}>
-   
       <Link to={`/detail/${id}`}>
         <img src={image} alt="" />
       </Link>
@@ -24,13 +21,10 @@ const Card = ({
       <h2>{releaseDate}</h2>
       <h2>{rating}</h2>
       <h2>{platforms}</h2>
-     
+
       <br />
     </div>
   );
 };
 
-
-
 export default Card;
-

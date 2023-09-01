@@ -1,5 +1,4 @@
-// import { useState } from 'react'
-import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { Routes, Route, useLocation} from "react-router-dom";
 import Lpage from "./componets/LandingPage/Landingpage"
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -7,8 +6,7 @@ import './App.css'
 import NavBar from "./componets/NavBar/NavBar";
 import Detail from "./componets/Detail/Detail";
 import Cards from "./componets/Cards/Cards";
-// import Registro from "./componets/Registro/registro"
-// import Forms from "./componets/Forms/Forms";
+
 
 
 
@@ -19,15 +17,10 @@ function App() {
   
   async function onSearch(name) {
     try {
-      const { data } = await axios(
-        `http://localhost:3000/?name=${name}`
-      );
-     
-      if (data.name) {
-        const char = data.map(n => n.name === name)
-        setCharacters((oldChars) => [...oldChars, char]);
-      }
-      
+      const { data } = await axios(`http://localhost:3000/?name=${name}`);
+        data.forEach(element => {
+          setCharacters((oldChars) => [...oldChars, element]);
+        });
     } catch (error) {
       window.alert("🔥🔥The character with this ID does not exist!!!🔥🔥");
     }
