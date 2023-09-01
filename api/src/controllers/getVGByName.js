@@ -29,10 +29,11 @@ const getByName = async (req, res) => {
         id: vg.id,
         name: vg.name,
         image: vg.background_image,
-        genres: vg.genres,
+        genres: vg.genres.map((g) => g.name).join(", "),
       };
     });
-
+   
+    console.log(data);
     const vGByName = [...gamesDB, ...apiByName];
 
     if (vGByName.length === 0) {
