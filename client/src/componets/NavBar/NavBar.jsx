@@ -1,28 +1,43 @@
-
 import style from "./NavBar.module.css";
-import {NavLink} from "react-router-dom";
 import SearchBar from "../SearchBar/searchBar";
 
-const NavBar = ({onSearch}) => {
+
+const NavBar = () => {
+  const filtro = (event) => {};
+  const filtro1 = (event) => {};
+ 
   
-const filtro = (event)=>{
-}
+  
+    // async function onSearch(name) {
+    //   try {
+    //     const { data } = await axios(`http://localhost:3000/?name=${name}`);
+    //       data.forEach(element => {
+    //         setCharacters((oldChars) => [...oldChars, element]);
+    //       });
+    //   } catch (error) {
+    //     window.alert("🔥🔥The character with this ID does not exist!!!🔥🔥");
+    //   }
+    // }
+   
+
+
+
+
   return (
     <div className={style.nav}>
-      <NavLink to="/home">
-        <button className={style.btnHome}>Home</button>
-      </NavLink>
-
       <select onChange={filtro}>
-        <option>filtrar por género</option>
-        <option value="a-z">abc...xyz</option>
-        <option value="z-a">xyz...abc</option>
-        <option value="0-10">0123456</option>
-        <option value="10-1">9876541</option>
+        <option value="a-z">asendente...abcde</option>
+        <option value="z-a">desendente...edcba</option>
+        <option value="0-10">asendente...01234</option>
+        <option value="10-1">desendente...43210</option>
       </select>
-     
-      <SearchBar onSearch={onSearch} />
-      
+      <select onChange={filtro1}>
+        <option>filtrar por género</option>
+        <option value="a-z">desde api</option>
+        <option value="z-a">desde base de datos</option>
+      </select>
+
+      <SearchBar  />
     </div>
   );
 };

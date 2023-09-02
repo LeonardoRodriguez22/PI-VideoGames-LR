@@ -12,7 +12,7 @@ router.get("/login", login);
 router.get("/genres", getGenre);
 router.post("/videogames/post", postVideoGames);
 router.get("/videogames", getVideoGames);
-router.get("/videogames/:id", getById);
+router.get("/videogames/:idVideogame", getById);
 router.get("/", getByName);
 
 module.exports = router;

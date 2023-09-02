@@ -10,8 +10,8 @@ const removeHTMLTags = (text) => {
 };
 
 const getById = async (req, res) => {
-  const { id } = req.params;
-  if (isNaN(id)) {
+  const { idVideogame } = req.params;
+  if (isNaN(idVideogame)) {
     let videogameDb = await Videogame.findByPk(id, {
       include: {
         model: Genres,
@@ -19,7 +19,6 @@ const getById = async (req, res) => {
         through: { attributes: [] },
       },
     });
-    
     const filtered = {
       id: videogameDb.id,
       name: videogameDb.name,
@@ -38,7 +37,7 @@ const getById = async (req, res) => {
     try {
       const response = (
         await axios.get(
-          `https://api.rawg.io/api/games/${id}?key=${API_KEY}`
+          `https://api.rawg.io/api/games/${idVideogame}?key=${API_KEY}`
         )
       ).data;
       let {

@@ -11,7 +11,7 @@ const Card = ({
   platforms,
 }) => {
   return (
-    <div className={style.tarjeta}>
+    <div className={style.tarjeta} >
       <Link to={`/detail/${id}`}>
         <img src={image} alt="" />
       </Link>
@@ -21,7 +21,6 @@ const Card = ({
       <h2>{releaseDate}</h2>
       <h2>{rating}</h2>
       <h2>{platforms}</h2>
-
       <br />
     </div>
   );
