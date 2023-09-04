@@ -2,9 +2,9 @@ import Card from "../Card/Card";
 import style from "./Cards.module.css";
 
 const Cards = ({ Character }) => {
-  let id =0
+ 
   return (
-    <div key={++id} className={style.container}>
+    <div className={style.container}>
       {Character?.map((character) => {
         return (
           <Card

@@ -5,10 +5,8 @@ const Card = ({
   name,
   id,
   image,
-  description,
-  releaseDate,
   rating,
-  platforms,
+  genre,
 }) => {
   return (
     <div className={style.tarjeta} >
@@ -17,10 +15,8 @@ const Card = ({
       </Link>
       <h2>{id}</h2>
       <h2>{name}</h2>
-      <h2>{description}</h2>
-      <h2>{releaseDate}</h2>
       <h2>{rating}</h2>
-      <h2>{platforms}</h2>
+      <h2>{genre}</h2>
       <br />
     </div>
   );

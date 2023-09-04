@@ -1,4 +1,3 @@
-
 import axios from "axios";
 
 export const characterDetail = (id) => {
@@ -28,7 +27,7 @@ export const allCharacters = () => {
       const { data } = await axios.get(endpoint);
       // console.log(data);
       dispatch({
-        type:"ALL_CHARACTERS",
+        type: "ALL_CHARACTERS",
         payload: data,
       });
     };
@@ -37,29 +36,48 @@ export const allCharacters = () => {
   }
 };
 
-export const getByName = (name) => {
-  try {
-    const endpoint =`http://localhost:3000/?name=${name}`;
-    return async (dispatch) => {
-      const { data } = await axios.get(endpoint);
-      // console.log(data);
-      dispatch({
-        type: "CHARACTERS_BY_NAME",
-        payload: data,
-      });
-    };
-  } catch (error) {
-    console.error("Error al obtener datos:", error);
-  }
-};
-// actions.js
 export const setPage = (pageNumber) => ({
-  type: 'SET_PAGE',
+  type: "SET_PAGE",
   payload: pageNumber,
 });
 
+export const orderCards = (order) => ({
+  type: "ALPHABETIC_ORDER",
+  payload: order,
+});
+
+export const orderCardsByName = (order) => ({
+  type: "NUMERIC_ORDER",
+  payload: order,
+});
+export const searchByGenre = (genre) => {
+  return {
+    type: "SEARCH_BY_GENRE",
+    payload: genre,
+  };
+};
+
+export const searchVideogame = (data) => {
+  return { type: "SEARCH", payload: data };
+};
+
+export const chargerInputSearch = (data) => ({
+  type: "CHARGER_INPUT_SEARCH",
+  payload: data,
+});
+
+export const cleaner = () => {
+  return { type: "CLEANER", payload: null };
+};
+
+export const dataFrom = (value) => {
+  return { type: "DATA_FROM", payload: value };
+};
 
 
+// export const cleaner = () => {
+//   return { type: "CLEAN_SEARCH" };
+// };
 
 // export const setPage = (page) => {
 //   try {
@@ -77,6 +95,18 @@ export const setPage = (pageNumber) => ({
 //   }
 // };
 
-
-
-
+// export const getByName = (name) => {
+//   try {
+//     const endpoint =`http://localhost:3000/?name=${name}`;
+//     return async (dispatch) => {
+//       const { data } = await axios.get(endpoint);
+//       // console.log(data);
+//       dispatch({
+//         type: "CHARACTERS_BY_NAME",
+//         payload: data,
+//       });
+//     };
+//   } catch (error) {
+//     console.error("Error al obtener datos:", error);
+//   }
+// };

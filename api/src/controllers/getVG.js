@@ -39,6 +39,7 @@ const getVideoGames = async (req, res) => {
 
     const APIGames = [...response1, ...response2, ...response3];
     const apiGames1 = APIGames?.map((vg) => ({
+      rating: vg.rating,
       id: vg.id,
       name: vg.name,
       genre: vg.genres?.map((g) => g.name).join(", "),

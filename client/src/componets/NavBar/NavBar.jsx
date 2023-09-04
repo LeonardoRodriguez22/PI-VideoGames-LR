@@ -1,45 +1,84 @@
-import style from "./NavBar.module.css";
-import SearchBar from "../SearchBar/searchBar";
+import { Link } from "react-router-dom";
+import "./NavBar.css";
+import { useDispatch } from "react-redux";
+import Search from "../SearchBar/SearchBar";
+import { orderCards } from "../../redux/actions";
+import { orderCardsByName, searchByGenre, cleaner, dataFrom} from "../../redux/actions";
 
 
-const NavBar = () => {
-  const filtro = (event) => {};
-  const filtro1 = (event) => {};
- 
-  
-  
-    // async function onSearch(name) {
-    //   try {
-    //     const { data } = await axios(`http://localhost:3000/?name=${name}`);
-    //       data.forEach(element => {
-    //         setCharacters((oldChars) => [...oldChars, element]);
-    //       });
-    //   } catch (error) {
-    //     window.alert("🔥🔥The character with this ID does not exist!!!🔥🔥");
-    //   }
-    // }
-   
+function NavBar() {
+  const dispatch = useDispatch();
 
+  const handleorder = (event) => {
+    const value = event.target.value;
+    if (value === "A-Z") {
+      dispatch(orderCards("a"));
+    } else {
+      dispatch(orderCards("b"));
+    }
+  };
 
+ const  handleCleaner = ()=>{
+  dispatch(cleaner())
+ }
+
+ const handleFromDate= (event)=>{
+  const value = event.target.value
+  dispatch(dataFrom(value))
+}
+  const handleorderByNumber = (event) => {
+    const value = event.target.value;
+    if (value === "1-9") {
+      dispatch(orderCardsByName("a"));
+    } else {
+      dispatch(orderCardsByName("b"));
+    }
+  };
+  const handleByGender =(event)=> {
+const value = event.target.value
+    dispatch(searchByGenre(value)); 
+  }
 
 
   return (
-    <div className={style.nav}>
-      <select onChange={filtro}>
-        <option value="a-z">asendente...abcde</option>
-        <option value="z-a">desendente...edcba</option>
-        <option value="0-10">asendente...01234</option>
-        <option value="10-1">desendente...43210</option>
+    <div className="NavBar">
+      <Link to={"/home"}>Home</Link>
+      <Search></Search>
+      <Link to={"/create"}>Crear</Link>
+      <Link to={"/"}>Salir</Link>
+      <button onClick={handleCleaner} >refresh</button>
+      <select onChange={handleorder}>
+        <option value="A-Z">A-Z</option>
+        <option value="Z-A">Z-A</option>
       </select>
-      <select onChange={filtro1}>
-        <option>filtrar por género</option>
-        <option value="a-z">desde api</option>
-        <option value="z-a">desde base de datos</option>
+      <select onChange={handleorderByNumber}>
+        <option value="1-9">1-9</option>
+        <option value="9-1">9-1</option>
       </select>
-
-      <SearchBar  />
+      <label id="ByGenero">ByGenero</label>
+      <select id="ByGenero" onChange={handleByGender}>
+        <option value="Action">"Action"</option>
+        <option value="Indie">"Indie"</option>
+        <option value="RPG">"RPG"</option>
+        <option value="Adventure">"Adventure"</option>
+        <option value="Strategy">"Strategy"</option>
+        <option value="Shooter">"Shooter"</option>
+        <option value="Casual">"Casual"</option>
+        <option value="Puzzle">"Puzzle"</option>
+        <option value="Simulation">"Simulation"</option>
+        <option value="Arcade">"Arcade"</option>
+        <option value="Platformer">"Platformer"</option>
+        <option value="Massively Multiplayer">"Massively Multiplayer"</option>
+        <option value="Racing">"Racing"</option>
+        <option value="Sports">"Sports"</option>
+        <option value="Family">"Family"</option>
+        <option value="Board Games">"Board Games"</option>
+      </select>
+      <select onChange={handleFromDate}>
+        <option value="Api">Api</option>
+        <option value="dataBase">dataBase</option>
+        </select>
     </div>
   );
-};
-
+}
 export default NavBar;

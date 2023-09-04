@@ -1,58 +1,91 @@
-import style from "./searchBar.module.css"
-import { useDispatch, useSelector } from "react-redux"
-import { useState,  useEffect  } from "react";
-import Card from "../Card/Card";
-import {getByName} from "../../redux/actions";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { searchVideogame, chargerInputSearch } from "../../redux/actions";
+import "./SearchBar.css";
 
-export default function SearchBar({ onSearch }) {
-  
-  const [name, setName] = useState("");
-  const handleChange = (event) => {
-    setName(event.target.value);
-  };
-  
-  const characters = useSelector((estado) => estado.charactersByName);
+//Primera forma buscar en el stado general
+
+const Search = () => {
+  const allVideogames = useSelector((state) => state.allCharacters);
   const dispatch = useDispatch();
-  
-  console.log(characters);
+  const [search, setSearch] = useState("");
+
 
   useEffect(() => {
-     }, []);
+      dispatch(chargerInputSearch(search));
+    }, [search]);
+  
+
+  const handleChange = (event) => {
+    setSearch(event.target.value);
+    handleSearch();
+  };
+  
+
+  const handleSearch = () => {
+    const found = allVideogames.filter((videogames) =>
+    videogames.name.toLowerCase().includes(search.toLowerCase())
+    );
+    dispatch(searchVideogame(found));
+  };
+  console.log(search);
 
   return (
-    <div className={style.divInput}>
-      <div className={style.divCardsByName}  key={characters.id}>
+    <div className="search-container">
+      <div className="search-bar">
         <input
-          className={style.inputSearch}
-          type="search"
+          className="searchInput"
+          type="text"
+          placeholder="Busca tu Videogame"
+          value={search}
           onChange={handleChange}
-          value={name}
         />
-        <button
-          className={style.btnSearch}
-          onClick={() => {
-            dispatch(getByName(name))
-          }}
-        >
-        buscar por nombre
-      </button>
-      {characters&&
-        characters.map((char) => {
-          return (
-            <Card
-              key={char.id}
-              id={char.id}
-              name={char.name}
-              image={char.image}
-              genre={char.genre}
-              description={char.description}
-              releaseDate={char.releaseDate}
-              rating={char.rating}
-              platforms={char.platforms}
-            />
-          );
-        })}
-    </div>
+      </div>
     </div>
   );
-}
+};
+
+export default Search;
+
+
+//seguna forma de busqueda directo a la api
+
+
+// import { useState, useEffect } from "react";
+// import { useDispatch, useSelector } from "react-redux";
+// import { searchVideogame, chargerInputSearch } from "../../redux/actions";
+// import "./SearchBar.css";
+
+
+// const Search = () => {
+//   const dispatch = useDispatch();
+//   const [search, setSearch] = useState("");
+
+//   const handleChange = (event) => {
+//     setSearch(event.target.value);
+//     handleSearch();
+//   };
+  
+
+//   const handleSearch = () => {    
+//     dispatch(getByName(data));
+//   };
+//   
+//   return (
+//     <div className="search-container">
+//       <div className="search-bar">
+//         <input
+//           className="searchInput"
+//           type="text"
+//           placeholder="Busca tu Videogame"
+//           value={search}
+//           onChange={handleChange}
+//         />
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Search;
+
+
