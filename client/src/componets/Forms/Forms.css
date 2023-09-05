@@ -1,0 +1,76 @@
+/* Estilos para el formulario */
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los campos de entrada */
+.container {
+  margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"],
+label {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Estilos para los mensajes de error */
+.parrafo3 {
+  color: #f44336;
+  margin-top: 5px;
+}
+
+/* Estilos para los checkboxes */
+.checkbox-container {
+  display: flex;
+  flex-wrap: wrap; /* Envuelve los checkboxes cuando no caben en una columna */
+}
+
+.checkbox-column {
+  flex: 0 0 calc(33.33% - 10px); /* Divide en columnas de 3 con un espacio de 10px */
+  margin-right: 10px; /* Espacio entre las columnas */
+  margin-bottom: 10px; /* Espacio entre las filas */
+}
+
+/* Estilos para los checkboxes y etiquetas */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px; /* Espacio entre el checkbox y la etiqueta */
+}
+
+/* Estilos para la vista previa de la imagen */
+.imagePreview {
+  max-width: 100px;
+  height: auto;
+  margin-top: 10px;
+}
+
+/* Estilos para el botón de enviar */
+.formButton[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.formButton[type="submit"]:hover {
+  background-color: #0056b3;
+}

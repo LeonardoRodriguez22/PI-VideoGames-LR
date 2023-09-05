@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import style from "./Card.module.css";
+import "./Card.css";
 
 const Card = ({
   name,
@@ -9,7 +9,7 @@ const Card = ({
   genre,
 }) => {
   return (
-    <div className={style.tarjeta} >
+    <div className={"tarjeta"} >
       <Link to={`/detail/${id}`}>
         <img src={image} alt="" />
       </Link>

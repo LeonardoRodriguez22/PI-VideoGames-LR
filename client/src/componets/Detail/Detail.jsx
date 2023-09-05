@@ -13,7 +13,7 @@ const Detail = () => {
   useEffect(() => {
     dispatch(characterDetail(id));
 
-    return () => dispatch(cleanStateDetail());
+    return () => dispatch(cleanStateDetail(id));
   }, [id]);
 
   return (

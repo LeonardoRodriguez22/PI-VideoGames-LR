@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { searchVideogame, chargerInputSearch } from "../../redux/actions";
+import { searchVideogame} from "../../redux/actions";
 import "./SearchBar.css";
 
 //Primera forma buscar en el stado general
@@ -10,21 +10,18 @@ const Search = () => {
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
 
-
   useEffect(() => {
-      dispatch(chargerInputSearch(search));
-    }, [search]);
-  
+    handleSearch();
+  }, [search]);
 
   const handleChange = (event) => {
     setSearch(event.target.value);
     handleSearch();
   };
-  
 
   const handleSearch = () => {
     const found = allVideogames.filter((videogames) =>
-    videogames.name.toLowerCase().includes(search.toLowerCase())
+      videogames.name.toLowerCase().includes(search.toLowerCase())
     );
     dispatch(searchVideogame(found));
   };
@@ -47,15 +44,12 @@ const Search = () => {
 
 export default Search;
 
-
 //seguna forma de busqueda directo a la api
-
 
 // import { useState, useEffect } from "react";
 // import { useDispatch, useSelector } from "react-redux";
 // import { searchVideogame, chargerInputSearch } from "../../redux/actions";
 // import "./SearchBar.css";
-
 
 // const Search = () => {
 //   const dispatch = useDispatch();
@@ -65,12 +59,11 @@ export default Search;
 //     setSearch(event.target.value);
 //     handleSearch();
 //   };
-  
 
-//   const handleSearch = () => {    
+//   const handleSearch = () => {
 //     dispatch(getByName(data));
 //   };
-//   
+//
 //   return (
 //     <div className="search-container">
 //       <div className="search-bar">
@@ -87,5 +80,3 @@ export default Search;
 // };
 
 // export default Search;
-
-

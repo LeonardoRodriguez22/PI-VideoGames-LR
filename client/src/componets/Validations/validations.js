@@ -1,26 +1,28 @@
-const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-export default (data) => {
-  let errors = {};
-  
-  
-  if (!regexEmail.test(data.email)) {
-    errors.e1 = "Debe ser un correo electronico";
+
+
+const validations = (form) => {
+  const errors = {};
+
+  if (!form.name) {
+    errors.name = "El nombre es obligatorio.";
   }
-  if (!data.email) {
-    errors.e1 = "Ingrese Email";
+
+  if (!form.description) {
+    errors.description = "La descripción es obligatoria.";
   }
-  if (data.email.length > 35) {
-    errors.e1= "debe tener menos de 35 carateres";
+
+  if (isNaN(form.rating) || form.rating < 1 || form.rating > 10) {
+    errors.rating = "El rating debe ser un número entre 1 y 10.";
   }
-  if (!/\d/.test(data.password)) {
-    errors.p1 = "debe tener al menos un numero";
+
+  if (!form.platforms) {
+    errors.platforms = "Las plataformas son obligatorias.";
   }
-  if (data.password.length < 6 || data.password.length > 10) {
-    errors.p1= "debe ser mayor a seis y menor a diez caracters";
-  }
+
+  // Agregar validación de releaseDate aquí
+
   return errors;
 };
 
-
-
+export default validations;
 

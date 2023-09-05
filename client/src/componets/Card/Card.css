@@ -1,34 +1,38 @@
+
 .tarjeta {
-  display: flex; 
-  flex-wrap: wrap; 
-  font-size: 0.7em;
+  width: 200px;
+  height: 200px;
+  align-content: flex-start;
+  padding: 0.1rem;
+  margin: 10px;
+  display:flex; 
   flex-direction: column;
-  align-items: center;
+  flex-wrap: nowrap;
+  font-size: 0.7em;
   border: solid 1px;
   border-radius: 10px;
-  margin: auto;
   box-shadow: -2px -5px 10px 2px #fdfeff;
   border-style: hidden;
-  margin: auto;
-  margin-top: 30px;
   background-size:auto;
   color: black;
   background-color: rgb(176, 177, 245);
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw2xKWkrfZfG5oqWjIVXd6LlyJVFC-obWiW6Ikc_TjzRyDK_F8Rt4IbN0_dMaUPr93aA&usqp=CAU");
-  justify-content: cover;
+  justify-content: center;
+  align-items: center;
 }
 
 
 img {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 70px;
   border-radius: 10px;
   border-style: hidden;
   margin: 5px;
 }
 
 h2 {
-  display: flex;
+  text-align: center;
+
   font-size: 1.5em;
   color: rgb(234, 166, 98);
   width: fit-content;

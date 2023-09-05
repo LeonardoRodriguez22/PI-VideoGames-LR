@@ -1,10 +1,10 @@
 import Card from "../Card/Card";
-import style from "./Cards.module.css";
+import "./Cards.css";
 
 const Cards = ({ Character }) => {
  
   return (
-    <div className={style.container}>
+    <div className="container">
       {Character?.map((character) => {
         return (
           <Card

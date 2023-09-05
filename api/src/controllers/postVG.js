@@ -6,7 +6,8 @@ const createVideoGame = async (
   platforms,
   image,
   releaseDate,
-  rating
+  rating,
+  genre,
 ) => {
   return await Videogame.create({
     name: name,
@@ -15,6 +16,7 @@ const createVideoGame = async (
     image: image,
     releaseDate: releaseDate,
     rating: rating,
+    genre: genre,
   });
 };
 
@@ -29,7 +31,7 @@ const postVideoGames = async (req, res) => {
       platforms,
       image,
       releaseDate,
-      rating
+      rating,
     );
 
     genre?.forEach(async (g) => {

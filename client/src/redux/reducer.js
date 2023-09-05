@@ -8,6 +8,7 @@ const initialState = {
   characterDetail: [],
   charactersByName: [],
   searchInput: "",
+  genres:[],
 };
 console.log(initialState.searchInput);
 
@@ -34,11 +35,7 @@ const reducers = (state = initialState, action) => {
         ...state,
         searchVideogame: action.payload,
       };
-    case "CHARGER_INPUT_SEARCH":
-      return {
-        ...state,
-        searchInput: action.payload,
-      };
+  
     case "ALPHABETIC_ORDER":
       const vGCopy = [...state.allCharacters];
       const videogamesShort = vGCopy.sort((a, b) => {
@@ -99,45 +96,35 @@ const reducers = (state = initialState, action) => {
         ...state,
         allCharacters: state.allCharactersBackUp,
       };
-
-      case "SET_DATA_FROM":
-        const isFromDatabase = action.payload === "dataBase";
-      
-        const filteredCharacters1 = [...state.allCharacters].filter((character) => {
-          if (isFromDatabase && character.creado) {
-            return character;
-          } else if (!isFromDatabase && !character.creado) {
-            return character;
+    case "SET_DATA_FROM":
+      const vGCopy2 = [...state.allCharactersBackUp];
+      if (action.payload === "dataBase") {
+        const videogamesFiltered = vGCopy2.filter((vg) => {
+          if (isNaN(vg.id)) {
+            return vg;
           }
         });
-        return { ...state, allCharacters: filteredCharacters1 };
-      
+        return {
+          ...state,
+          allCharacters: videogamesFiltered,
+        };
+      } else {
+        const vGCopy3 = [...state.allCharactersBackUp];
+        const videogamesFiltered2 = vGCopy3.filter((vg) => {
+          if (Number(vg.id)) {
+            return vg;
+          }
+        });
+        return {
+          ...state,
+          allCharacters: videogamesFiltered2,
+        };
+      }
+      case "GET_GENRES":
+        return { 
+          ...state, 
+          genres: action.payload };
 
-  //     case "SET_DATA_FROM":
-  //     const isFromDatabase = action.payload === "dataBase";
-  //     const filteredCharacters = state.allCharacters.filter((character) =>({
-   
-  //       if (isFromDatabase) {return if(character.creado){return character}}
-  //     })
-  //  return character 
-  // }
-
-  // return { ...state, allCharacters: filteredCharacters };
-  
-    // case "DATA_FROM":
-    //   const copy = [...state.allCharacters];
-    //   if (action.payload === "dataBase") {
-    //     const copyFilter = copy.filter((vg) => {
-    //       return vg.creado ? vg : null;
-    //     });
-    //   return {...state, allCharacters: copyFilter}
-    //   }
-      // if (action.payload === "Api") {
-      //   const copyFilter = copy.filter((vg) => {
-      //     return !vg.creado ? vg : null;
-      //   });
-      // return {...state, allCharacters: copyFilter} 
-      // }
     default:
       return { ...state };
   }

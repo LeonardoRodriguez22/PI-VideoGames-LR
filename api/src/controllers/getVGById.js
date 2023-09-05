@@ -12,21 +12,23 @@ const removeHTMLTags = (text) => {
 const getById = async (req, res) => {
   const { idVideogame } = req.params;
   if (isNaN(idVideogame)) {
-    let videogameDb = await Videogame.findByPk(id, {
+    let videogameDb = await Videogame.findByPk(idVideogame, {
       include: {
         model: Genres,
         attributes: ["name"],
         through: { attributes: [] },
+        image:idVideogame.image,
       },
     });
     const filtered = {
       id: videogameDb.id,
       name: videogameDb.name,
-        genres: videogameDb.Genres.map((g) => g.name).join(", "),
+        genre: videogameDb.Genres.map((g) => g.name).join(", "),
         description: videogameDb.description,
         releaseDate: videogameDb.releaseDate,
         rating: videogameDb.rating,
         platforms: videogameDb.platforms,
+        image:videogameDb.image,
     }
     
     //dejo un array con los nombres de genero solamente

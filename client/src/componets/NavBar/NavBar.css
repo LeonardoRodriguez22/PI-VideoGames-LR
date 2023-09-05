@@ -1,10 +1,40 @@
+
+/* Estilos generales de la barra de navegación */
 .NavBar {
-  width: 100%;
-  background-color: #21460ac0; /* Color de fondo de la NavBar */
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 40px;
-  background-size: cover;
-  background-position: center center;
+  background-color: #333; /* Color de fondo de la barra de navegación */
+  color: #fff; /* Color del texto en la barra de navegación */
+  padding: 10px; /* Espaciado interno */
+  display: flex; /* Mostrar elementos en línea */
+  justify-content: space-between; /* Espaciamiento uniforme entre elementos */
+  align-items: center; /* Alinear elementos verticalmente */
+}
+
+/* Estilos para los enlaces de navegación */
+.NavBar a {
+  text-decoration: none; /* Quitar subrayado de enlaces */
+  color: #fff; /* Color del texto de los enlaces */
+  margin-right: 20px; /* Espaciado derecho entre enlaces */
+}
+
+/* Estilos para el botón de "Refresh" */
+.NavBar button {
+  background-color: #007bff; /* Color de fondo del botón */
+  color: #fff; /* Color del texto del botón */
+  border: none; /* Quitar borde del botón */
+  padding: 5px 10px; /* Espaciado interno del botón */
+  cursor: pointer; /* Cambiar cursor al pasar el ratón */
+}
+
+/* Estilos para las listas desplegables (select) */
+.NavBar select {
+  background-color: #fff; /* Color de fondo del select */
+  color: #333; /* Color del texto en el select */
+  border: 1px solid #ccc; /* Borde del select */
+  padding: 5px; /* Espaciado interno del select */
+  margin-right: 10px; /* Espaciado derecho entre selects */
+}
+
+/* Estilos para la etiqueta "ByGenero" */
+#ByGenero {
+  margin-right: 5px; /* Espaciado derecho de la etiqueta */
 }

@@ -19,6 +19,7 @@ const getVideoGames = async (req, res) => {
       name: vg.name,
       genre: vg.Genres?.map((g) => g.name).join(", "),
       image: vg.image,
+      rating: vg.rating,
     }));
 
     const response1 = (
