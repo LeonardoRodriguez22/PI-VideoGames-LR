@@ -38,7 +38,7 @@ label {
 }
 
 .checkbox-column {
-  flex: 0 0 calc(33.33% - 10px); /* Divide en columnas de 3 con un espacio de 10px */
+  flex: 0 0 calc(25.33% - 5px); /* Divide en columnas de 3 con un espacio de 10px */
   margin-right: 10px; /* Espacio entre las columnas */
   margin-bottom: 10px; /* Espacio entre las filas */
 }
