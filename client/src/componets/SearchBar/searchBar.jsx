@@ -4,9 +4,8 @@
 /////////////                                       \\\\\\\\\\\\\\\\\\\\\\\
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { searchVideogamePerName} from "../../redux/actions";
+import { searchVideogamePerName } from "../../redux/actions";
 import "./SearchBar.css";
-
 
 const Search = () => {
   const allVideogames = useSelector((state) => state.allCharacters);
@@ -65,8 +64,6 @@ export default Search;
 //     setSearch(event.target.value);
 //     handleSearch();
 //   };
-
-  
 
 //   const handleSearch = () => {
 //     dispatch(getByNameApi(search));

@@ -73,7 +73,7 @@ export const getGenres = () => {
 
 export const getByNameApi = (name) => {
   try {
-    const endpoint =`http://localhost:3000/?name=${name}`;
+    const endpoint = `http://localhost:3000/?name=${name}`;
     return async (dispatch) => {
       const { data } = await axios.get(endpoint);
       // console.log(data);
@@ -94,5 +94,3 @@ export const cleanStateDetail = () => {
 export const cleaner = () => {
   return { type: "CLEANER", payload: null };
 };
-
-

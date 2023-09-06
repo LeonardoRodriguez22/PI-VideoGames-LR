@@ -32,7 +32,7 @@ const getByName = async (req, res) => {
         genres: vg.genres.map((g) => g.name).join(", "),
       };
     });
-   
+
     console.log(data);
     const vGByName = [...gamesDB, ...apiByName];
 

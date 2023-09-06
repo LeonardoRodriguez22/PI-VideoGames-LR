@@ -1,5 +1,3 @@
-
-
 const validations = (form) => {
   const errors = {};
 
@@ -19,10 +17,7 @@ const validations = (form) => {
     errors.platforms = "Las plataformas son obligatorias.";
   }
 
-  // Agregar validación de releaseDate aquí
-
   return errors;
 };
 
 export default validations;
-

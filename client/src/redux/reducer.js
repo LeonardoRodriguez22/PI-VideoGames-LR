@@ -127,14 +127,14 @@ const reducers = (state = initialState, action) => {
     case "CHARACTERS_BY_NAME_API":
       return {
         ...state,
-        charactersByName: action.payload, 
+        charactersByName: action.payload,
       };
 
     case "CLEANER":
       return {
         ...state,
         allCharacters: state.allCharactersBackUp,
-        charactersByName:[]
+        charactersByName: [],
       };
 
     default:
@@ -143,25 +143,3 @@ const reducers = (state = initialState, action) => {
 };
 
 export default reducers;
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//

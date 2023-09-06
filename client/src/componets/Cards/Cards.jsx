@@ -2,7 +2,6 @@ import Card from "../Card/Card";
 import "./Cards.css";
 
 const Cards = ({ Character }) => {
- 
   return (
     <div className="container">
       {Character?.map((character) => {

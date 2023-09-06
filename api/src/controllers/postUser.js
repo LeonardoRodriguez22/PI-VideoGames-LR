@@ -6,9 +6,9 @@ module.exports = async (req, res) => {
 
     if (!email || !password) return res.status(400).send("faltan datos buey");
 
-     await User.findOrCreate({ where: { email, password } });
+    await User.findOrCreate({ where: { email, password } });
 
-    return res.json({access1:true});
+    return res.json({ access1: true });
   } catch (error) {
     return res.status(500).send(error.message);
   }

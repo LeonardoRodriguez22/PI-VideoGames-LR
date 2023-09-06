@@ -92,7 +92,6 @@ export default Home;
 //   const VideoGamePerPage = 10;
 //   const totalPage = Math.ceil(Character.length / VideoGamePerPage);
 //   const dispatch = useDispatch();
-
 //   useEffect(() => {
 //     if (Character.length === 0) {
 //       dispatch(allCharacters());

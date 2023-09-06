@@ -1,6 +1,6 @@
 .landdiv {
   width: 100%;
-  height: 100vh; /* 100% del alto de la ventana */
+  height: 100vh;
   color: aliceblue;
   background-image: url("https://www.yorokobu.es/wp-content/uploads/2019/12/321gameover.gif");
   background-size: cover;

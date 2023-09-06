@@ -1,42 +1,36 @@
-
-/* Estilos generales de la barra de navegación */
 .NavBar {
-  background-color: #333; /* Color de fondo de la barra de navegación */
-  color: #fff; /* Color del texto en la barra de navegación */
-  padding: 5px; /* Espaciado interno */
-  display: flex; /* Mostrar elementos en línea */
-  justify-content: space-between; /* Espaciamiento uniforme entre elementos */
-  align-items: center; /* Alinear elementos verticalmente */
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Estilos para los enlaces de navegación */
 .NavBar a {
-  text-decoration: none; /* Quitar subrayado de enlaces */
-  color: #fff; /* Color del texto de los enlaces */
-  margin-right: 10px; /* Espaciado derecho entre enlaces */
+  text-decoration: none;
+  color: #fff;
+  margin-right: 10px;
 }
 
-/* Estilos para el botón de "Refresh" */
 .NavBar button {
-  background-color: #007bff; /* Color de fondo del botón */
-  color: #fff; /* Color del texto del botón */
-  border: none; /* Quitar borde del botón */
-  padding: 5px 5px; /* Espaciado interno del botón */
-  cursor: pointer; /* Cambiar cursor al pasar el ratón */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 5px;
+  cursor: pointer;
 }
 
-/* Estilos para las listas desplegables (select) */
 .NavBar select {
-  background-color: #fff; /* Color de fondo del select */
-  color: #333; /* Color del texto en el select */
-  border: 1px solid #ccc; /* Borde del select */
-  padding: 5px; /* Espaciado interno del select */
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 5px;
   margin-right: 3px;
-  border-radius: 10px ; /* Espaciado derecho entre selects */
+  border-radius: 10px;
 }
 
-/* Estilos para la etiqueta "ByGenero" */
 #ByGenero {
   width: fit-content;
-  margin-right: 1px; /* Espaciado derecho de la etiqueta */
+  margin-right: 1px;
 }

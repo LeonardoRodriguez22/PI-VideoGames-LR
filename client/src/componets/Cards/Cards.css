@@ -1,27 +1,10 @@
-
-
-/* .container {
-  display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 20px;
-  justify-items: center;
-}
-
-.tarjeta {
-  background-color: #ffffff;
-  border: 1px solid #dddddd;
-  padding: 10px;
-  text-align: center;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-} */
-
 .container {
   margin: auto;
-  display:flex;
+  display: flex;
   flex-flow: wrap;
-  justify-content:center;
+  justify-content: center;
   font-size: 0.7em;
   flex-wrap: wrap;
-   min-width: 100%;
+  min-width: 100%;
   min-height: 100%;
 }

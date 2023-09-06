@@ -1,11 +1,10 @@
-
 .tarjeta {
   width: 220px;
   height: 200px;
   align-content: flex-start;
   padding: 0.1rem;
   margin: 10px;
-  display:flex; 
+  display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   font-size: 0.7em;
@@ -13,14 +12,13 @@
   border-radius: 10px;
   box-shadow: -2px -5px 10px 2px #fdfeff;
   border-style: hidden;
-  background-size:auto;
+  background-size: auto;
   color: black;
   background-color: rgb(176, 177, 245);
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw2xKWkrfZfG5oqWjIVXd6LlyJVFC-obWiW6Ikc_TjzRyDK_F8Rt4IbN0_dMaUPr93aA&usqp=CAU");
   justify-content: center;
   align-items: center;
 }
-
 
 img {
   width: 180px;
@@ -38,4 +36,4 @@ h2 {
   width: fit-content;
   padding: 2px;
   margin: 2px;
- }
+}

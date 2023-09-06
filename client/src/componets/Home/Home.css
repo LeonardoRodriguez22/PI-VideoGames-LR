@@ -1,17 +1,3 @@
-
-/* .divAllVG{
-   
-    border:solid;
-    background-color: rgb(96, 145, 145);
-    background-image: url("https://www.tuexperto.com/wp-content/uploads/2022/01/paginas-descargar-fondos-de-pantalla-1080x608.jpg.webp");
-    margin-top: 10px;
-    border-radius: 20px;
-    width: 100%;
-    height:100%;
-    align-items: center;
- 
-} */
-/* Estilos para el contenedor de los botones de paginación */
 .divAllVG {
   display: flex;
   flex-direction: column;
@@ -19,39 +5,34 @@
   background-image: url("https://www.tuexperto.com/wp-content/uploads/2022/01/paginas-descargar-fondos-de-pantalla-1080x608.jpg.webp");
 }
 
-/* Estilos para los botones de paginación */
 button {
-  background-color: #007BFF; /* Color de fondo del botón */
-  color: #fff; /* Color del texto */
-  border: none; /* Sin borde */
-  padding: 10px 20px; /* Relleno interno */
-  margin: 5px; /* Margen entre botones */
-  cursor: pointer; /* Cambio de cursor al pasar el ratón */
-  font-size: 16px; /* Tamaño de fuente */
-  border-radius: 5px; /* Borde redondeado */
-  transition: background-color 0.3s; /* Transición suave del color de fondo */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
-/* Estilo para el botón "PREV" */
 button[disabled="true"]:first-child {
-  background-color: #ccc; /* Color de fondo atenuado cuando está deshabilitado */
-  cursor: not-allowed; /* Cursor no disponible cuando está deshabilitado */
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
-/* Estilo para el botón "NEXT" */
 button[disabled="true"]:last-child {
-  background-color: #ccc; /* Color de fondo atenuado cuando está deshabilitado */
-  cursor: not-allowed; /* Cursor no disponible cuando está deshabilitado */
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
-/* Estilo para el número de página actual */
 .divAllVG > div {
   display: flex;
   align-items: center;
-  margin-top: 10px; /* Margen superior para separar los botones de la información de página */
+  margin-top: 10px;
 }
 
-/* Estilos para los números de página */
 .divAllVG > div > span {
   font-size: 18px;
   margin: 0 10px;

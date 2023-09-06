@@ -17,20 +17,20 @@ const getById = async (req, res) => {
         model: Genres,
         attributes: ["name"],
         through: { attributes: [] },
-        image:idVideogame.image,
+        image: idVideogame.image,
       },
     });
     const filtered = {
       id: videogameDb.id,
       name: videogameDb.name,
-        genre: videogameDb.Genres.map((g) => g.name).join(", "),
-        description: videogameDb.description,
-        releaseDate: videogameDb.releaseDate,
-        rating: videogameDb.rating,
-        platforms: videogameDb.platforms,
-        image:videogameDb.image,
-    }
-    
+      genre: videogameDb.Genres.map((g) => g.name).join(", "),
+      description: videogameDb.description,
+      releaseDate: videogameDb.releaseDate,
+      rating: videogameDb.rating,
+      platforms: videogameDb.platforms,
+      image: videogameDb.image,
+    };
+
     //dejo un array con los nombres de genero solamente
     // videogameDb.genres = videogameDb.genres.map((g) => g.name);
     res.json(filtered);

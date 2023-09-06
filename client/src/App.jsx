@@ -6,7 +6,6 @@ import { useLocation } from "react-router-dom";
 import NavBar from "./componets/NavBar/NavBar";
 import Form from "./componets/Forms/Forms";
 
-
 function App() {
   const location = useLocation();
   return (
