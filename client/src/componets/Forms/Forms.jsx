@@ -12,7 +12,7 @@ const Form = () => {
     rating: "",
     platforms: "",
     releaseData: "",
-    image: null,
+    image: "",
     genre: [],
   });
   console.log(form);
@@ -44,11 +44,7 @@ const Form = () => {
     setForm({ ...form, genre: updatedSelectedGenres });
   };
 
-  const setFile = (event) => {
-    const file = event.target.files[0];
-    console.log(event.target.files);
-    setForm({ ...form, Imagen: URL.createObjectURL(file) });
-  };
+  
 
   const changeHandler = (event) => {
     const property = event.target.name; //propiedad del estado form = name del imput
@@ -70,7 +66,7 @@ const Form = () => {
 
     axios
       .post("http://localhost:3000/videogames/post", form)
-      .then((res) => alert(res.data))
+      .then((res) => alert("tu juego a sido creado con exito"))
       .catch((error) => alert(error));
 
     setForm({
@@ -78,7 +74,7 @@ const Form = () => {
       description: "",
       rating: "",
       platforms: "",
-      releasedData: "",
+      releaseData: "",
     });
   };
 
@@ -128,7 +124,7 @@ const Form = () => {
         <input
           type="text"
           placeholder="releasedData"
-          value={form.releasedData}
+          value={form.releaseData}
           name="releasedData"
           onChange={changeHandler}
         ></input>
@@ -151,12 +147,13 @@ const Form = () => {
           ))}
         </div>
       </div>
-
       <div>
-        <input type="file" name="Imagen" onChange={setFile}></input>
-        {form.image && (
-          <img src={form.image} alt={form.name} className="imagePreview" />
-        )}
+        <input
+          type="text"
+          name="image"
+          onChange={changeHandler}
+          placeholder="ingresa la url de tu imagen"
+        ></input>
       </div>
       <button className="formButton" type="submit" disabled={!isFormValid()}>
         Crear Juego

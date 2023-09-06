@@ -1,6 +1,6 @@
 /* Estilos para el formulario */
 form {
-  max-width: 400px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f7f7f7;
@@ -38,13 +38,14 @@ label {
 }
 
 .checkbox-column {
-  flex: 0 0 calc(25.33% - 5px); /* Divide en columnas de 3 con un espacio de 10px */
-  margin-right: 10px; /* Espacio entre las columnas */
-  margin-bottom: 10px; /* Espacio entre las filas */
+  flex: 0 0 calc(33.33% - 10px); /* Divide en columnas de 3 con un espacio de 10px */
+  margin-right: 30px; /* Espacio entre las columnas */
+  margin-bottom: 30px; /* Espacio entre las filas */
 }
 
 /* Estilos para los checkboxes y etiquetas */
 .checkbox-label {
+  
   display: flex;
   align-items: center;
 }

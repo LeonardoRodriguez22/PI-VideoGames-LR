@@ -1,9 +1,12 @@
+//Primera forma buscar en el stado global de 120 video juegos
+///////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+////////////////////////                  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+/////////////                                       \\\\\\\\\\\\\\\\\\\\\\\
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { searchVideogame} from "../../redux/actions";
+import { searchVideogamePerName} from "../../redux/actions";
 import "./SearchBar.css";
 
-//Primera forma buscar en el stado general
 
 const Search = () => {
   const allVideogames = useSelector((state) => state.allCharacters);
@@ -23,7 +26,7 @@ const Search = () => {
     const found = allVideogames.filter((videogames) =>
       videogames.name.toLowerCase().includes(search.toLowerCase())
     );
-    dispatch(searchVideogame(found));
+    dispatch(searchVideogamePerName(found));
   };
   console.log(search);
 
@@ -45,10 +48,13 @@ const Search = () => {
 export default Search;
 
 //seguna forma de busqueda directo a la api
-
-// import { useState, useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { searchVideogame, chargerInputSearch } from "../../redux/actions";
+//trayendo los primeros 15 video juegos q matcheen
+///////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+////////////////////////                  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+/////////////                                       \\\\\\\\\\\\\\\\\\\\\\\
+// import { useState} from "react";
+// import { useDispatch } from "react-redux";
+// import {getByNameApi} from "../../redux/actions";
 // import "./SearchBar.css";
 
 // const Search = () => {
@@ -60,10 +66,12 @@ export default Search;
 //     handleSearch();
 //   };
 
+  
+
 //   const handleSearch = () => {
-//     dispatch(getByName(data));
+//     dispatch(getByNameApi(search));
 //   };
-//
+
 //   return (
 //     <div className="search-container">
 //       <div className="search-bar">

@@ -1,6 +1,6 @@
 
 .tarjeta {
-  width: 200px;
+  width: 220px;
   height: 200px;
   align-content: flex-start;
   padding: 0.1rem;
@@ -23,8 +23,8 @@
 
 
 img {
-  width: 100px;
-  height: 70px;
+  width: 180px;
+  height: 100px;
   border-radius: 10px;
   border-style: hidden;
   margin: 5px;

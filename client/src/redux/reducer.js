@@ -8,7 +8,7 @@ const initialState = {
   characterDetail: [],
   charactersByName: [],
   searchInput: "",
-  genres:[],
+  genres: [],
 };
 console.log(initialState.searchInput);
 
@@ -19,23 +19,26 @@ const reducers = (state = initialState, action) => {
         ...state,
         characterDetail: action.payload,
       };
+
     case "ALL_CHARACTERS":
       return {
         ...state,
         allCharacters: action.payload,
         allCharactersBackUp: action.payload, // Usa state.allCharacters
       };
+
     case "SET_PAGE":
       return {
         ...state,
         currentPage: action.payload,
       };
-    case "SEARCH":
+
+    case "SEARCH_VG_PER_NAME":
       return {
         ...state,
         searchVideogame: action.payload,
       };
-  
+
     case "ALPHABETIC_ORDER":
       const vGCopy = [...state.allCharacters];
       const videogamesShort = vGCopy.sort((a, b) => {
@@ -71,18 +74,16 @@ const reducers = (state = initialState, action) => {
         ...state,
         allCharacters: videogamesShort1,
       };
+
     case "SEARCH_BY_GENRE":
       const genreToSearch = action.payload.toLowerCase();
       const filteredCharacters = state.allCharacters.filter((character) => {
-        const genresArray = character.genre.split(", "); // Divide la cadena de géneros en un array
-
-        // Verifica si el género deseado está presente en el array de géneros
+        const genresArray = character.genre.split(", ");
         return genresArray.some(
           (genre) => genre.toLowerCase() === genreToSearch
         );
       });
       if (filteredCharacters.length === 0) {
-        // Si no se encontraron resultados, devuelve el estado general original
         return {
           ...state,
         };
@@ -91,11 +92,7 @@ const reducers = (state = initialState, action) => {
         ...state,
         allCharacters: filteredCharacters,
       };
-    case "CLEANER":
-      return {
-        ...state,
-        allCharacters: state.allCharactersBackUp,
-      };
+
     case "SET_DATA_FROM":
       const vGCopy2 = [...state.allCharactersBackUp];
       if (action.payload === "dataBase") {
@@ -120,10 +117,25 @@ const reducers = (state = initialState, action) => {
           allCharacters: videogamesFiltered2,
         };
       }
-      case "GET_GENRES":
-        return { 
-          ...state, 
-          genres: action.payload };
+
+    case "GET_GENRES":
+      return {
+        ...state,
+        genres: action.payload,
+      };
+
+    case "CHARACTERS_BY_NAME_API":
+      return {
+        ...state,
+        charactersByName: action.payload, 
+      };
+
+    case "CLEANER":
+      return {
+        ...state,
+        allCharacters: state.allCharactersBackUp,
+        charactersByName:[]
+      };
 
     default:
       return { ...state };
@@ -131,15 +143,25 @@ const reducers = (state = initialState, action) => {
 };
 
 export default reducers;
-
-// case "CHARACTERS_BY_NAME":
-//   return {
-//     ...state,
-//     charactersByName: action.payload, // Usa state.allCharacters
-//   };
-
-//   case "CLEAN_SEARCH":
-// return {
-//   ...state,
-//   searchVideogame: [],
-// };
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//

@@ -2,19 +2,28 @@ import { Link } from "react-router-dom";
 import "./NavBar.css";
 import { useDispatch } from "react-redux";
 import Search from "../SearchBar/SearchBar";
-import { orderCards } from "../../redux/actions";
-import { orderCardsByName, searchByGenre, cleaner, dataFrom} from "../../redux/actions";
+import { numberOrder, alphabeticOrder, searchByGenre, cleaner, dataFrom} from "../../redux/actions";
 
 
 function NavBar() {
   const dispatch = useDispatch();
 
-  const handleorder = (event) => {
+
+  const handleNumberOrder = (event) => {
+    const value = event.target.value;
+    if (value === "1-9") {
+      dispatch(numberOrder("a"));
+    } else {
+      dispatch(numberOrder("b"));
+    }
+  };
+
+  const handleAlphabeticOrder = (event) => {
     const value = event.target.value;
     if (value === "A-Z") {
-      dispatch(orderCards("a"));
+      dispatch(alphabeticOrder("a"));
     } else {
-      dispatch(orderCards("b"));
+      dispatch(alphabeticOrder("b"));
     }
   };
 
@@ -22,23 +31,16 @@ function NavBar() {
   dispatch(cleaner())
  }
 
+ const handleByGender =(event)=> {
+ const value = event.target.value
+   dispatch(searchByGenre(value)); 
+ }
+
  const handleFromDate= (event)=>{
   const value = event.target.value
   dispatch(dataFrom(value))
 }
-  const handleorderByNumber = (event) => {
-    const value = event.target.value;
-    if (value === "1-9") {
-      dispatch(orderCardsByName("a"));
-    } else {
-      dispatch(orderCardsByName("b"));
-    }
-  };
-  const handleByGender =(event)=> {
-const value = event.target.value
-    dispatch(searchByGenre(value)); 
-  }
-
+  
 
   return (
     <div className="NavBar">
@@ -47,11 +49,11 @@ const value = event.target.value
       <Link to={"/create"}>Crear</Link>
       <Link to={"/"}>Salir</Link>
       <button onClick={handleCleaner} >refresh</button>
-      <select onChange={handleorder}>
+      <select onChange={handleAlphabeticOrder}>
         <option value="A-Z">A-Z</option>
         <option value="Z-A">Z-A</option>
       </select>
-      <select onChange={handleorderByNumber}>
+      <select onChange={handleNumberOrder}>
         <option value="1-9">1-9</option>
         <option value="9-1">9-1</option>
       </select>
