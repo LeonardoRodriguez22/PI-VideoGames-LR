@@ -1,0 +1,34 @@
+/* landingPage.css */
+
+.landdiv {
+  background-image: url("https://www.yorokobu.es/wp-content/uploads/2019/12/321gameover.gif");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.center-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* Coloca los elementos uno arriba del otro */
+  align-items: center;
+}
+h1 {
+  background-image: linear-gradient(45deg, #c90505, #00ffff, #00ff33); /* Gradiente tornasolado */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.button-container {
+  margin-top: -20px; /* Espacio entre el texto y el botón */
+}
+
+.homebtn{
+  background-image: linear-gradient(45deg, #c90505, #00ffff, #00ff33); /* Gradiente tornasolado */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+

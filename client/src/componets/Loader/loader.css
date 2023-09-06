@@ -1,4 +1,6 @@
-.loader-container {
+.loader-container { 
+  background-image: url("https://i.pinimg.com/originals/eb/7a/ef/eb7aef6eefb0759a3cfe119c406f506a.jpg");
+  background-size:cover;
   display: flex;
   justify-content: center;
   align-items: center;

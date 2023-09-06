@@ -78,7 +78,7 @@ export const getByNameApi = (name) => {
       const { data } = await axios.get(endpoint);
       // console.log(data);
       dispatch({
-        type: "CHARACTERS_BY_NAME_API",
+        type: "SEARCH_PER_NAME_API",
         payload: data,
       });
     };

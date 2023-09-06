@@ -124,7 +124,7 @@ const reducers = (state = initialState, action) => {
         genres: action.payload,
       };
 
-    case "CHARACTERS_BY_NAME_API":
+    case "SEARCH_PER_NAME_API":
       return {
         ...state,
         charactersByName: action.payload,
@@ -135,6 +135,7 @@ const reducers = (state = initialState, action) => {
         ...state,
         allCharacters: state.allCharactersBackUp,
         charactersByName: [],
+        characterDetail:[],
       };
 
     default:

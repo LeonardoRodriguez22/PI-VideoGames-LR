@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import style from "./Detail.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { characterDetail, cleanStateDetail } from "../../redux/actions";
+import { characterDetail, cleanStateDetail} from "../../redux/actions";
+import Loader from "../Loader/loader";
 
 const Detail = () => {
   const character = useSelector((estado) => estado.characterDetail);
@@ -12,10 +13,14 @@ const Detail = () => {
 
   useEffect(() => {
     dispatch(characterDetail(id));
-
+    
     return () => dispatch(cleanStateDetail(id));
   }, [id]);
-
+  
+  if (character.length === 0) {
+    return <Loader />;
+  }
+  
   return (
     <div className={style.container}>
       <Link to="/home">

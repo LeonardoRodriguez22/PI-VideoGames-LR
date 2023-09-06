@@ -1,21 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Forms.css";
 import validations from "../Validations/validations";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { allCharacters } from "../../redux/actions";
 
 const Form = () => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch();
   const genres = useSelector((state) => state.genres);
   const [form, setForm] = useState({
     name: "",
     description: "",
     rating: "",
     platforms: "",
-    releaseData: "",
+    releaseDate: "",
     image: "",
     genre: [],
   });
-  console.log(form);
 
   const [errors, setErrors] = useState({
     name: "",
@@ -62,7 +65,7 @@ const Form = () => {
 
     axios
       .post("http://localhost:3000/videogames/post", form)
-      .then((res) => alert("tu juego a sido creado con exito"))
+      // .then((res) => alert("tu juego a sido creado con exito"))
       .catch((error) => alert(error));
 
     setForm({
@@ -70,21 +73,27 @@ const Form = () => {
       description: "",
       rating: "",
       platforms: "",
-      releaseData: "",
+      releaseDate: "",
     });
+    
+    navigate("/home")
   };
+  
+  useEffect(() => {
+    dispatch(allCharacters());
+  }, [form]);
 
   return (
     <form onSubmit={submitHandler}>
       <div className="container">
         <input
           type="text"
-          placeholder="name"
+          placeholder="name of your video game"
           value={form.name}
           name="name"
           onChange={changeHandler}
         ></input>
-        {errors.name && <p className="parrafo3">{errors.name}</p>}
+        {errors.name && <p className="errorP">{errors.name}</p>}
       </div>
       <div className="container">
         <input
@@ -94,7 +103,7 @@ const Form = () => {
           name="description"
           onChange={changeHandler}
         ></input>
-        {errors.description && <p className="parrafo3">{errors.description}</p>}
+        {errors.description && <p className="errorP">{errors.description}</p>}
       </div>
       <div className="container">
         <input
@@ -104,7 +113,7 @@ const Form = () => {
           name="rating"
           onChange={changeHandler}
         ></input>
-        {errors.rating && <p className="parrafo3">{errors.rating}</p>}
+        {errors.rating && <p className="errorP">{errors.rating}</p>}
       </div>
       <div className="container">
         <input
@@ -114,14 +123,14 @@ const Form = () => {
           name="platforms"
           onChange={changeHandler}
         ></input>
-        {errors.platforms && <p className="parrafo3">{errors.platforms}</p>}
+        {errors.platforms && <p className="errorP">{errors.platforms}</p>}
       </div>
       <div className="container">
         <input
           type="text"
-          placeholder="releasedData"
-          value={form.releaseData}
-          name="releasedData"
+          placeholder="releaseDate"
+          value={form.releaseDate}
+          name="releaseDate"
           onChange={changeHandler}
         ></input>
       </div>
