@@ -16,7 +16,7 @@ export const characterDetail = (id) => {
   }
 };
 
-export const allCharacters = () => {
+export const getAllCharacters = () => {
   try {
     const endpoint = "http://localhost:3000/videogames/";
     return async (dispatch) => {

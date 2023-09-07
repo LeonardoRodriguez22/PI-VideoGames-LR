@@ -4,7 +4,10 @@ import validations from "../Validations/validations";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { allCharacters } from "../../redux/actions";
+import { getAllCharacters } from "../../redux/actions";
+import { Link } from "react-router-dom";
+
+
 
 const Form = () => {
   const navigate = useNavigate()
@@ -75,16 +78,25 @@ const Form = () => {
       platforms: "",
       releaseDate: "",
     });
+
     
-    navigate("/home")
+      setTimeout(function() {
+        navigate("/home")
+        console.log("¡El tiempo ha transcurrido!");
+      }, 2000);
   };
   
   useEffect(() => {
-    dispatch(allCharacters());
+    dispatch(getAllCharacters());
   }, [form]);
 
   return (
     <form onSubmit={submitHandler}>
+      <div className="container">
+      <Link to="/home">
+        <button className="formButton" >home</button>
+      </Link>
+      </div>
       <div className="container">
         <input
           type="text"
@@ -98,7 +110,7 @@ const Form = () => {
       <div className="container">
         <input
           type="text"
-          placeholder="description del juego"
+          placeholder="Videogame description"
           value={form.description}
           name="description"
           onChange={changeHandler}
@@ -108,7 +120,7 @@ const Form = () => {
       <div className="container">
         <input
           type="number"
-          placeholder="rating"
+          placeholder="Rating"
           value={form.rating}
           name="rating"
           onChange={changeHandler}
@@ -118,7 +130,7 @@ const Form = () => {
       <div className="container">
         <input
           type="text"
-          placeholder="platforms"
+          placeholder="Platforms"
           value={form.platforms}
           name="platforms"
           onChange={changeHandler}
@@ -128,7 +140,7 @@ const Form = () => {
       <div className="container">
         <input
           type="text"
-          placeholder="releaseDate"
+          placeholder="Releasedate"
           value={form.releaseDate}
           name="releaseDate"
           onChange={changeHandler}
@@ -152,12 +164,12 @@ const Form = () => {
           ))}
         </div>
       </div>
-      <div>
+      <div className="container">
         <input
           type="text"
           name="image"
           onChange={changeHandler}
-          placeholder="ingresa la url de tu imagen"
+          placeholder="Enter the url of your image"
         ></input>
       </div>
       <button className="formButton" type="submit" disabled={!isFormValid()}>

@@ -1,9 +1,15 @@
 form {
-  max-width: 700px;
-  margin: 0 auto;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  align-items: center;
+  /* color: #fff; */
+  max-width: 400px;
+  margin-bottom: 20px;
   padding: 20px;
-  background-color: #f7f7f7;
-  border: 1px solid #ccc;
+  border: 3px unset #3498db;
+  background-color: rgba(41, 75, 144, 0.5); 
+  border: 1px solid #a42e2e;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -11,17 +17,26 @@ form {
 .container {
   margin-bottom: 15px;
 }
-
-input[type="text"],
-input[type="number"],
-input[type="file"],
-label {
+.container input {
+  background-color: rgba(146, 152, 164, 0.5);
   width: 100%;
   padding: 10px;
   margin-bottom: 5px;
-  border: 1px solid #ccc;
+  border: 1px unset #8a3434;
   border-radius: 4px;
 }
+
+
+.container input:focus {
+  border-color: #2b8e15; 
+  outline: none;
+} 
+
+
+.container input::placeholder {
+  color: #ffffff;
+} 
+
 
 .errorP {
   color: #f44336;
@@ -29,6 +44,7 @@ label {
 }
 
 .checkbox-container {
+  color: #fff;
   display: flex;
   flex-wrap: wrap;
 }
@@ -49,6 +65,7 @@ input[type="checkbox"] {
 }
 
 .formButton[type="submit"] {
+  display: flex;
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -56,6 +73,8 @@ input[type="checkbox"] {
   padding: 10px 20px;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin: auto;
+  align-items: center;
 }
 
 .formButton[type="submit"]:hover {

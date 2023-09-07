@@ -26,7 +26,7 @@ const Detail = () => {
       <Link to="/home">
         <button className={style.btn}>home</button>
       </Link>
-      <img className={style.imagen} src={character.background_image} />
+      <img className={style.imagen} src={character.background_image  || character.image } />
       <h1 className={style.name}>name : "{character.name}"</h1>
       <h1 className={style.name}>description : "{character.description}"</h1>
       <h1 className={style.name}>releaseDate : "{character.releaseDate}"</h1>

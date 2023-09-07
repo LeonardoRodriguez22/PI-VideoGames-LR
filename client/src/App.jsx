@@ -5,18 +5,20 @@ import Home from "./componets/Home/Home";
 import { useLocation } from "react-router-dom";
 import NavBar from "./componets/NavBar/NavBar";
 import Form from "./componets/Forms/Forms";
+import "./App.css"
+
 
 function App() {
   const location = useLocation();
   return (
-    <div>
-      {location.pathname !== "/" && location.pathname !== "filter" ? (
+    <div className="divGeneral">
+      {location.pathname === "/home" ? (
         <NavBar />
       ) : null}
       <Routes>
         <Route path="/" element={<Lpage />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/detail/:id" element={<Detail id:id/>} />
         <Route path="/create" element={<Form />} />
       </Routes>
     </div>

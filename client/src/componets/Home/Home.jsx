@@ -4,7 +4,7 @@
 /////////////                                       \\\\\\\\\\\\\\\\\\\\\\\
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { setPage, getGenres, allCharacters } from "../../redux/actions";
+import { setPage, getGenres, getAllCharacters } from "../../redux/actions";
 import "./Home.css";
 import Cards from "../Cards/Cards";
 import "../Cards/Cards.css";
@@ -20,8 +20,8 @@ const Home = () => {
 
   useEffect(() => {
     if (Character.length === 0) {
-      dispatch(allCharacters());
-    }
+      dispatch(getAllCharacters());
+    } 
     dispatch(getGenres());
   }, []);
 
@@ -38,13 +38,12 @@ const Home = () => {
     }
   };
 
-  const handlePrevPage = () => {
-    if (currentPage > 1) dispatch(setPage(currentPage - 1));
-  };
-
   if (Character.length === 0) {
     return <Loader />;
   }
+  const handlePrevPage = () => {
+    if (currentPage > 1) dispatch(setPage(currentPage - 1));
+  };
 
   return search.length !== 0 && search.length < 15 ? (
     <div className="divAllVG">

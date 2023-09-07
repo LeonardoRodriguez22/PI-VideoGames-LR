@@ -1,7 +1,6 @@
-import { allCharacters } from "./actions";
-
 const initialState = {
   allCharacters: [],
+  charactersByGenre:[],
   allCharactersBackUp: [],
   searchVideogame: [],
   currentPage: 1,
@@ -76,8 +75,9 @@ const reducers = (state = initialState, action) => {
       };
 
     case "SEARCH_BY_GENRE":
+      const copy = [...state.allCharacters]
       const genreToSearch = action.payload.toLowerCase();
-      const filteredCharacters = state.allCharacters.filter((character) => {
+      const filteredCharacters = copy.filter((character) => {
         const genresArray = character.genre.split(", ");
         return genresArray.some(
           (genre) => genre.toLowerCase() === genreToSearch
@@ -90,7 +90,7 @@ const reducers = (state = initialState, action) => {
       }
       return {
         ...state,
-        allCharacters: filteredCharacters,
+        searchVideogame: filteredCharacters,
       };
 
     case "SET_DATA_FROM":
