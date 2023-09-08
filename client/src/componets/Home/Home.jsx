@@ -18,7 +18,9 @@ const Home = () => {
   const totalPage = Math.ceil(Character.length / VideoGamePerPage);
   const dispatch = useDispatch();
 
-  useEffect(() => {
+// console.log("soy el searcr",search);
+
+useEffect(() => {
     if (Character.length === 0) {
       dispatch(getAllCharacters());
     } 
@@ -28,9 +30,10 @@ const Home = () => {
   const CharacterSlicer = () => {
     const startIndex = (currentPage - 1) * VideoGamePerPage;
     const endIndex = startIndex + VideoGamePerPage;
-
+    
     return Character.slice(startIndex, endIndex);
   };
+  // console.log("soy el Character", CharacterSlicer)
 
   const handleNextPage = () => {
     if (currentPage < totalPage) {

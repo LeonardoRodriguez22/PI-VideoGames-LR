@@ -3,6 +3,7 @@ const initialState = {
   charactersByGenre:[],
   allCharactersBackUp: [],
   searchVideogame: [],
+  searchVideogameBackUp: [],
   currentPage: 1,
   characterDetail: [],
   charactersByName: [],
@@ -12,72 +13,97 @@ console.log(initialState.searchInput);
 
 const reducers = (state = initialState, action) => {
   switch (action.type) {
-    case "CHARACTER_DETAIL":
-      return {
-        ...state,
-        characterDetail: action.payload,
-      };
 
     case "ALL_CHARACTERS":
       return {
         ...state,
         allCharacters: action.payload,
-        allCharactersBackUp: action.payload, // Usa state.allCharacters
+        allCharactersBackUp: action.payload,
       };
 
     case "SET_PAGE":
       return {
         ...state,
         currentPage: action.payload,
+      searchVideogameBackUp: action.payload,
       };
 
     case "SEARCH_VG_PER_NAME":
       return {
         ...state,
         searchVideogame: action.payload,
+        searchVideogameBackUp: action.payload,
       };
 
-    case "ALPHABETIC_ORDER":
-      const vGCopy = [...state.allCharacters];
-      const videogamesShort = vGCopy.sort((a, b) => {
-        const nameA = a.name.toLowerCase();
-        const nameB = b.name.toLowerCase();
-        if (action.payload === "a") {
-          if (nameA < nameB) return -1;
-          if (nameA > nameB) return 1;
-          return 0;
-        } else {
-          if (nameA > nameB) return -1;
-          if (nameA < nameB) return 1;
-          return 0;
-        }
-      });
-      return {
-        ...state,
-        allCharacters: videogamesShort,
-      };
+case "ALPHABETIC_ORDER":
+  const vGCopy = [...state.allCharactersBackUp];
+  const videogamesSorted = vGCopy.sort((a, b) => {
+    const nameA = a.name.toLowerCase();
+    const nameB = b.name.toLowerCase();
+    if (action.payload === "a") {
+      if (nameA < nameB) return -1;
+      if (nameA > nameB) return 1;
+      return 0;
+    } else {
+      if (nameA > nameB) return -1;
+      if (nameA < nameB) return 1;
+      return 0;
+    }
+  });
 
-    case "NUMERIC_ORDER":
-      const vGCopy1 = [...state.allCharacters];
-      const videogamesShort1 = vGCopy1.sort((a, b) => {
-        const valueA = a.rating;
-        const valueB = b.rating;
-        if (action.payload === "a") {
-          return valueA - valueB;
-        } else {
-          return valueB - valueA;
-        }
-      });
-      return {
-        ...state,
-        allCharacters: videogamesShort1,
-      };
+  const vGCopy1 = [...state.searchVideogameBackUp];
+  const searchAlphabetic = vGCopy1.sort((a, b) => {
+    const nameA = a.name.toLowerCase();
+    const nameB = b.name.toLowerCase();
+    if (action.payload === "a") {
+      if (nameA < nameB) return -1;
+      if (nameA > nameB) return 1;
+      return 0;
+    } else {
+      if (nameA > nameB) return -1;
+      if (nameA < nameB) return 1;
+      return 0;
+    }
+  });
+
+  return {
+    ...state,
+    allCharacters: videogamesSorted,
+    searchVideogame: searchAlphabetic,
+  };
+
+case "NUMERIC_ORDER":
+  const vGCopy2 = [...state.allCharactersBackUp];
+  const videogamesShort1 = vGCopy2.sort((a, b) => {
+    const valueA = a.rating;
+    const valueB = b.rating;
+    if (action.payload === "a") {
+      return valueA - valueB;
+    } else {
+      return valueB - valueA;
+    }
+  });
+  const vGCopy3 = [...state.searchVideogameBackUp];
+  const searchVideogameSort2 = vGCopy3.sort((a, b) => {
+    const valueA = a.rating;
+    const valueB = b.rating;
+    if (action.payload === "a") {
+      return valueA - valueB;
+    } else {
+      return valueB - valueA;
+    }
+  });
+
+  return {
+    ...state,
+    allCharacters: videogamesShort1,
+    searchVideogame: searchVideogameSort2,
+  };
 
     case "SEARCH_BY_GENRE":
       const copyGenre = [...state.allCharactersBackUp]
       const genreToSearch = action.payload
       const filteredCharacters = copyGenre.filter((character) => {
-        console.log(character.genre);
         const genresArray = character.genre.split(", ");
         return genresArray.includes(genreToSearch);
       });
@@ -92,9 +118,9 @@ const reducers = (state = initialState, action) => {
       };
 
     case "SET_DATA_FROM":
-      const vGCopy2 = [...state.allCharactersBackUp];
+      const vGCopy4 = [...state.allCharactersBackUp];
       if (action.payload === "dataBase") {
-        const videogamesFiltered = vGCopy2.filter((vg) => {
+        const videogamesFiltered = vGCopy4.filter((vg) => {
           if (isNaN(vg.id)) {
             return vg;
           }
@@ -104,8 +130,8 @@ const reducers = (state = initialState, action) => {
           allCharacters: videogamesFiltered,
         };
       } else {
-        const vGCopy3 = [...state.allCharactersBackUp];
-        const videogamesFiltered2 = vGCopy3.filter((vg) => {
+        const vGCopy5 = [...state.allCharactersBackUp];
+        const videogamesFiltered2 = vGCopy5.filter((vg) => {
           if (Number(vg.id)) {
             return vg;
           }

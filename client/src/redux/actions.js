@@ -1,21 +1,5 @@
 import axios from "axios";
 
-export const characterDetail = (id) => {
-  try {
-    const endpoint = "http://localhost:3000/videogames/" + id;
-    return async (dispatch) => {
-      const { data } = await axios.get(endpoint);
-      // console.log(data);
-      return dispatch({
-        type: "CHARACTER_DETAIL",
-        payload: data,
-      });
-    };
-  } catch (error) {
-    console.error("Error al obtener datos:", error);
-  }
-};
-
 export const getAllCharacters = () => {
   try {
     const endpoint = "http://localhost:3000/videogames/";

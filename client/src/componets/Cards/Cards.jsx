@@ -2,9 +2,10 @@ import Card from "../Card/Card";
 import "./Cards.css";
 
 const Cards = ({ Character }) => {
+  console.log("soy el character ", Character);
   return (
     <div className="container">
-      {Character?.map((character) => {
+      {Character.map((character) => {
         return (
           <Card
             key={character.id}

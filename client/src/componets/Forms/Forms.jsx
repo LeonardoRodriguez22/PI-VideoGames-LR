@@ -38,14 +38,12 @@ const Form = () => {
 
     let updatedSelectedGenres;
 
-    // Actualizar las generos seleccionadas
     if (event.target.checked) {
       updatedSelectedGenres = [...selectedgenres, value];
     } else {
       updatedSelectedGenres = selectedgenres.filter((genre) => genre !== value);
     }
 
-    // Actualizar el estado de generos seleccionados y el estado del formulario
     setSelectedgenres(updatedSelectedGenres);
     setForm({ ...form, genre: updatedSelectedGenres });
   };
@@ -65,10 +63,11 @@ const Form = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    dispatch(getAllCharacters());
 
     axios
       .post("http://localhost:3000/videogames/post", form)
-      // .then((res) => alert("tu juego a sido creado con exito"))
+      .then((res) => alert("tu juego a sido creado con exito"))
       .catch((error) => alert(error));
 
     setForm({
@@ -79,16 +78,13 @@ const Form = () => {
       releaseDate: "",
     });
 
-    
       setTimeout(function() {
         navigate("/home")
         console.log("¡El tiempo ha transcurrido!");
-      }, 2000);
+      }, 1500);
   };
   
-  useEffect(() => {
-    dispatch(getAllCharacters());
-  }, [form]);
+ 
 
   return (
     <form onSubmit={submitHandler}>
