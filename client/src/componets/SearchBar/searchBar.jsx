@@ -8,7 +8,7 @@ import { searchVideogamePerName } from "../../redux/actions";
 import "./SearchBar.css";
 
 const Search = () => {
-  const allVideogames = useSelector((state) => state.allCharacters);
+  const allVideogames = useSelector((state) => state.allCharactersBackUp);
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
 

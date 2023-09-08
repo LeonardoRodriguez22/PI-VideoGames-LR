@@ -33,6 +33,7 @@ function NavBar() {
 
   const handleByGender = (event) => {
     const value = event.target.value;
+    console.log(value);
     dispatch(searchByGenre(value));
   };
 
@@ -73,7 +74,7 @@ function NavBar() {
           <option value="Board Games">"Board Games"</option>
           <option value="Educational">"Educational"</option>
           <option value="Fighting">"Fighting"</option>
-          <option value="Board Games">"Card"</option>
+          <option value="Card">"Card"</option>
         </select>
         <select id="ByGenero" onChange={handleAlphabeticOrder}>
           <option>Alphabetic orders</option>

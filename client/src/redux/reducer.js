@@ -6,7 +6,6 @@ const initialState = {
   currentPage: 1,
   characterDetail: [],
   charactersByName: [],
-  searchInput: "",
   genres: [],
 };
 console.log(initialState.searchInput);
@@ -75,13 +74,12 @@ const reducers = (state = initialState, action) => {
       };
 
     case "SEARCH_BY_GENRE":
-      const copy = [...state.allCharacters]
-      const genreToSearch = action.payload.toLowerCase();
-      const filteredCharacters = copy.filter((character) => {
+      const copyGenre = [...state.allCharactersBackUp]
+      const genreToSearch = action.payload
+      const filteredCharacters = copyGenre.filter((character) => {
+        console.log(character.genre);
         const genresArray = character.genre.split(", ");
-        return genresArray.some(
-          (genre) => genre.toLowerCase() === genreToSearch
-        );
+        return genresArray.includes(genreToSearch);
       });
       if (filteredCharacters.length === 0) {
         return {
@@ -90,7 +88,7 @@ const reducers = (state = initialState, action) => {
       }
       return {
         ...state,
-        searchVideogame: filteredCharacters,
+        allCharacters: filteredCharacters,
       };
 
     case "SET_DATA_FROM":
@@ -134,8 +132,6 @@ const reducers = (state = initialState, action) => {
       return {
         ...state,
         allCharacters: state.allCharactersBackUp,
-        charactersByName: [],
-        characterDetail:[],
       };
 
     default:
