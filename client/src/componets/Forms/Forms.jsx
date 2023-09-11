@@ -7,8 +7,6 @@ import { useNavigate } from "react-router-dom";
 import { getAllCharacters } from "../../redux/actions";
 import { Link } from "react-router-dom";
 
-
-
 const Form = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch();

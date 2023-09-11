@@ -1,5 +1,5 @@
 
-import "./landingPage.css";
+import "./LandingPage.css";
 import { NavLink } from "react-router-dom";
 
 function Lpage() {

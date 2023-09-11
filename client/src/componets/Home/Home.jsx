@@ -69,6 +69,20 @@ useEffect(() => {
           NEXT
         </button>
       </div>
+       <hr />
+      <footer className="footer">
+        <div className="footer-content">
+            <div className="footer-logo">
+                <img src="https://th.bing.com/th/id/OIP.AC4_F1m6ZOdd56SH_aJJYwHaE8?pid=ImgDet&rs=1" alt="Logo"/>
+            </div>
+            <div className="footer-links">
+                <a href="https://twitter.com/home">twitter</a>
+                <a href="https://www.facebook.com/">faceboock</a>
+                <a href="/feddBack">leave your feedback here</a>
+        <p>All rights reserved by Pi-VideoGames-Lr inc.</p>
+            </div>
+        </div>
+    </footer>
     </div>
   );
 };

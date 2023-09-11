@@ -7,6 +7,7 @@ import {
   alphabeticOrder,
   searchByGenre,
   dataFrom,
+  cleaner,
 } from "../../redux/actions";
 
 function NavBar() {
@@ -15,32 +16,48 @@ function NavBar() {
 
   const handleNumberOrder = (event) => {
     const value = event.target.value;
-    if (value === "1-9") {
-      dispatch(numberOrder("a"));
-    } else {
-      dispatch(numberOrder("b"));
+    if(value === "clear"){
+      dispatch(cleaner());
+    }else{
+      if (value === "1-9") {
+        dispatch(numberOrder("a"));
+      } else {
+        dispatch(numberOrder("b"));
+      }
     }
   };
 
   const handleAlphabeticOrder = (event) => {
     const value = event.target.value;
-    if (value === "A-Z") {
-      dispatch(alphabeticOrder("a"));
-    } else {
-      dispatch(alphabeticOrder("b"));
+    if(value === "clear"){
+      dispatch(cleaner());
+    }else{
+      if (value === "A-Z") {
+        dispatch(alphabeticOrder("a"));
+      } else {
+        dispatch(alphabeticOrder("b"));
+      }
     }
   };
 
   const handleByGender = (event) => {
     const value = event.target.value;
-    console.log(value);
-    dispatch(searchByGenre(value));
+    if(value === "clear"){
+      dispatch(cleaner());
+    }else{
+      dispatch(searchByGenre(value));
+    }
   };
 
   const handleFromDate = (event) => {
     const value = event.target.value;
-    dispatch(dataFrom(value));
+    if(value === "clear"){
+      dispatch(cleaner());
+    }else{
+      dispatch(dataFrom(value));
+    }
   };
+
 
   return (
     <div>
@@ -55,7 +72,7 @@ function NavBar() {
           <Link to={"/create"}>Create</Link>
         </button>
         <select id="ByGenero" onChange={handleByGender}>
-          <option>{name1}</option>
+          <option value= "clear">{name1}</option>
           <option value="Action">"Action"</option>
           <option value="Indie">"Indie"</option>
           <option value="RPG">"RPG"</option>
@@ -77,17 +94,17 @@ function NavBar() {
           <option value="Card">"Card"</option>
         </select>
         <select id="ByGenero" onChange={handleAlphabeticOrder}>
-          <option>Alphabetic orders</option>
+          <option value="clear">Alphabetic orders</option>
           <option value="A-Z">A-Z</option>
           <option value="Z-A">Z-A</option>
         </select>
-        <select id="ByGenero" onChange={handleNumberOrder}>
-          <option>Order orders</option>
+        <select   id="ByGenero" onChange={handleNumberOrder}>
+          <option value="clear">Number order</option>
           <option value="1-9">1-9</option>
           <option value="9-1">9-1</option>
         </select>
-        <select id="ByGenero" onChange={handleFromDate}>
-          <option>Date From</option>
+        <select  id="ByGenero" onChange={handleFromDate}>
+          <option value="clear">Date From</option>
           <option value="Api">Api</option>
           <option value="dataBase">dataBase</option>
         </select>

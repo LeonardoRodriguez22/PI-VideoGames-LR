@@ -29,6 +29,8 @@ const Search = () => {
   };
   console.log(search);
 
+
+
   return (
     <div className="search-container">
       <div className="search-bar">
@@ -85,3 +87,12 @@ export default Search;
 // };
 
 // export default Search;
+
+////////// eventoo controlador de enter////////
+///
+//   const enterHandler = (event) => {
+//     if (event.key === "Enter") {
+//       dispatch(searchVideogamePerName(found));
+//     }
+//    }
+// onKeyPress={enterHandler}
