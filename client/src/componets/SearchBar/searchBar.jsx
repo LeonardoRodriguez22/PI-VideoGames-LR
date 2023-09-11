@@ -27,7 +27,7 @@ const Search = () => {
     );
     dispatch(searchVideogamePerName(found));
   };
-  console.log(search);
+  // console.log(search);
 
 
 

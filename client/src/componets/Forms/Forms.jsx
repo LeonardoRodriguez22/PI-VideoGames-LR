@@ -61,13 +61,12 @@ const Form = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    dispatch(getAllCharacters());
-
+    
     axios
-      .post("http://localhost:3000/videogames/post", form)
-      .then((res) => alert("tu juego a sido creado con exito"))
-      .catch((error) => alert(error));
-
+    .post("http://localhost:3000/videogames/post", form)
+    .then((res) => alert("tu juego a sido creado con exito"))
+    .catch((error) => alert(error));
+    
     setForm({
       name: "",
       description: "",
@@ -75,11 +74,12 @@ const Form = () => {
       platforms: "",
       releaseDate: "",
     });
-
-      setTimeout(function() {
-        navigate("/home")
-        console.log("¡El tiempo ha transcurrido!");
-      }, 1500);
+    
+    setTimeout(function() {
+      navigate("/home")
+      dispatch(getAllCharacters());
+        // console.log("¡El tiempo ha transcurrido!");
+      }, 4000);
   };
   
  
@@ -133,7 +133,7 @@ const Form = () => {
       </div>
       <div className="container">
         <input
-          type="text"
+          type="Date"
           placeholder="Releasedate"
           value={form.releaseDate}
           name="releaseDate"
@@ -143,9 +143,9 @@ const Form = () => {
       <div className="checkBox">
         <div className="checkbox-container">
           {genres.map((genre) => (
-            <div key={genre.ID} className="checkbox-column">
+            <div key={genre.id} className="checkbox-column">
               <label className="checkbox-label">
-                <input
+                <input 
                   type="checkbox"
                   value={genre.name}
                   checked={selectedgenres.includes(genre.name)}

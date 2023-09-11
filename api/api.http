@@ -43,3 +43,8 @@ content-type: application/json
   "image":"https://phantom-elmundo.unidadeditorial.es/fb441abbaede2cabb4b9ba6c9fe5bdc3/crop/0x0/1200x800/resize/600/f/webp/assets/multimedia/imagenes/2023/02/14/16763706248699.jpg",
   "genre":["Action","Adventure","Shooter", "Learning...and learning..."]
 }
+
+
+###
+
+DELETE  http://localhost:3000/delete/67f637b3-9994-48d3-9d54-64a31be05e57
