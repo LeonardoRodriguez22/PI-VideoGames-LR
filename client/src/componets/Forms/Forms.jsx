@@ -78,7 +78,6 @@ const Form = () => {
     setTimeout(function() {
       navigate("/home")
       dispatch(getAllCharacters());
-        // console.log("¡El tiempo ha transcurrido!");
       }, 4000);
   };
   

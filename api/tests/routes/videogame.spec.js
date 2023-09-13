@@ -2,14 +2,14 @@
 const { expect } = require('chai');
 const session = require('supertest-session');
 const app = require('../../src/app.js');
-const { Videogame,Genres, conn } = require('../../src/db.js');
+const { Videogame, Genres, conn } = require('../../src/db.js');
 
 const agent = session(app);
 const videogame = {
   name: 'Super Mario Bros',
 };
 
-describe('Videogame routes',async() => {
+describe('Videogame routes', async() => {
 await before(() => conn.authenticate()
   .catch((err) => {
     console.error('Unable to connect to the database:', err);
@@ -18,7 +18,7 @@ await before(() => conn.authenticate()
     .then(() => Videogame.create(videogame)));
   (describe('GET /videogames', () => {
      it('should get 200', () =>
-      agent.get('/videogames').expect(200)
+       agent.get('/videogames/1').expect(200)
     );
   }));
 });
