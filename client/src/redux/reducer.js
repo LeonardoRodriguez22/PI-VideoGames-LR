@@ -5,11 +5,9 @@ const initialState = {
   searchVideogame: [],
   searchVideogameBackUp: [],
   currentPage: 1,
-  characterDetail: [],
   charactersByName: [],
   genres: [],
 };
-console.log(initialState.searchInput);
 
 const reducers = (state = initialState, action) => {
   switch (action.type) {
@@ -25,7 +23,6 @@ const reducers = (state = initialState, action) => {
       return {
         ...state,
         currentPage: action.payload,
-      searchVideogameBackUp: action.payload,
       };
 
     case "SEARCH_VG_PER_NAME":
@@ -108,14 +105,15 @@ case "NUMERIC_ORDER":
     case "SEARCH_BY_GENRE":
       const copyGenre = [...state.allCharactersBackUp]
       const genreToSearch = action.payload
-      const filteredCharacters = copyGenre.filter((character) => {
-        const genresArray = character.genre.split(", ");
+      const filteredCharacters = copyGenre.filter((vg) => {
+        const genresArray = vg.genre.split(", ");
         return genresArray.includes(genreToSearch);
       });
       if (filteredCharacters.length === 0) {
-        return {
-          ...state,
-        };
+        alert(
+          "No se encontraron coincidencias para este género en la búsqueda."
+        )
+        return state
       }
       return {
         ...state,
@@ -156,7 +154,7 @@ case "NUMERIC_ORDER":
     case "SEARCH_PER_NAME_API":
       return {
         ...state,
-        charactersByName: action.payload,
+        allCharacters: action.payload,
       };
 
     case "CLEANER":
@@ -167,7 +165,31 @@ case "NUMERIC_ORDER":
 
     default:
       return { ...state };
-  }
+    }
 };
 
 export default reducers;
+
+
+
+
+
+/////////filtro por genero en search desactivo por q me falta debuguear 1 error//////////
+    // if (state.searchVideogame.length !== 0) {
+    //   const searchfilteredCharacters = [
+    //     ...state.searchVideogameBackUp,
+    //   ].filter((vg) => {
+    //     const genresArraySearch = vg.genre.split(", ");
+    //     return genresArraySearch.includes(genreToSearch);
+    //   });
+
+    //   if (searchfilteredCharacters.length === 0) {
+    //     alert(
+    //       "No se encontraron coincidencias para este género en la búsqueda."
+    //     );
+    //     return{
+    //       ...state
+    //     } 
+    //   }
+    //   return { ...state, searchVideogame: searchfilteredCharacters };
+    // }

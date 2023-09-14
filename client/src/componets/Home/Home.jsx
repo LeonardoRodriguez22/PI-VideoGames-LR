@@ -95,7 +95,7 @@ export default Home;
 /////////////                                       \\\\\\\\\\\\\\\\\\\\\\\
 // import { useDispatch, useSelector } from "react-redux";
 // import { useEffect } from "react";
-// import { setPage, getGenres, allCharacters } from "../../redux/actions";
+// import { setPage, getGenres, getAllCharacters } from "../../redux/actions";
 // import "./Home.css";
 // import Cards from "../Cards/Cards";
 // import "../Cards/Cards.css";
@@ -110,7 +110,7 @@ export default Home;
 //   const dispatch = useDispatch();
 //   useEffect(() => {
 //     if (Character.length === 0) {
-//       dispatch(allCharacters());
+//       dispatch(getAllCharacters());
 //     }
 //     dispatch(getGenres());
 //   }, []);

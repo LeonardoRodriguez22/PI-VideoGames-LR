@@ -1,22 +1,19 @@
 import { Link } from "react-router-dom";
 import "./Card.css";
 import { useDispatch } from "react-redux";
-import { getAllCharacters,cleaner } from "../../redux/actions";
+import { getAllCharacters} from "../../redux/actions";
 import axios from "axios"
 
 
-const Card = ({ name, id, image, rating, genre }) => {
+const Card = ({ name, id, image, genre }) => {
 const dispatch = useDispatch();
-  
-  const deleteHanler = ()=>{
-    axios.delete( `http://localhost:3000/delete/${id}` )
-    .then((res)=> alert(res.data))
-    .catch((error)=> alert(error.data))
-    
-    setTimeout(function() {
-      dispatch(getAllCharacters())
-      dispatch(cleaner());
-    }, 4000);
+
+const deleteHanler = ()=>{
+  axios
+  .delete( `http://localhost:3000/delete/${id}` )
+  .then((res)=> alert(res.data))
+  .then((res) => dispatch(getAllCharacters()))
+  .catch((error)=> alert(error.data))
   }
 
   return (
@@ -25,9 +22,7 @@ const dispatch = useDispatch();
       <Link to={`/detail/${id}`}>
         <img src={image} alt="" />
       </Link>
-      <h2>{id}</h2>
       <h2>{name}</h2>
-      <h2>{rating}</h2>
       <h2>{genre}</h2>
       <br />
     </div>

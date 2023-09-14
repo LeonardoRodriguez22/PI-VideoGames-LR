@@ -17,13 +17,8 @@ button {
   transition: background-color 0.3s;
 }
 
-button[disabled="true"]:first-child {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-button[disabled="true"]:last-child {
-  background-color: #ccc;
+button:disabled{
+  background-color: #f44336;
   cursor: not-allowed;
 }
 

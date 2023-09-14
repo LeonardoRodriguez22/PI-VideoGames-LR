@@ -15,9 +15,16 @@
   background-size: auto;
   color: black;
   background-color: rgb(176, 177, 245);
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw2xKWkrfZfG5oqWjIVXd6LlyJVFC-obWiW6Ikc_TjzRyDK_F8Rt4IbN0_dMaUPr93aA&usqp=CAU");
+  /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw2xKWkrfZfG5oqWjIVXd6LlyJVFC-obWiW6Ikc_TjzRyDK_F8Rt4IbN0_dMaUPr93aA&usqp=CAU"); */
   justify-content: center;
   align-items: center;
+  background-color: rgba(41, 75, 144, 0.5); 
+  transition: transform 0.5s, box-shadow 2s;
+}
+.tarjeta:hover {
+  transform: scale(1.05); 
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2); 
+  cursor: pointer;
 }
 
 img {
@@ -26,6 +33,12 @@ img {
   border-radius: 10px;
   border-style: hidden;
   margin: 5px;
+  transition: transform 0.5s;
+}
+img:hover {
+  transform: scale(1.1); 
+  box-shadow: 0px 2px 10px rgba(163, 56, 56, 0.2); 
+  cursor: pointer;
 }
 
 h2 {

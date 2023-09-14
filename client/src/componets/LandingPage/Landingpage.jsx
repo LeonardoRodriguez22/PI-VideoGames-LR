@@ -9,7 +9,7 @@ function Lpage() {
         <h1>Your Videogames Page</h1>
         <div className="button-container">
           <NavLink to="/home">
-            <button className="homebtn">Home</button>
+            <button className="homebtn">Play</button>
           </NavLink>
         </div>
       </div>

@@ -2,16 +2,11 @@
   margin: auto;
   margin-top: 15px;
   border: 3px unset #3498db;
-  background-color: rgba(
-    14,
-    15,
-    17,
-    0.5
-  ); 
+  background-color: rgba(14, 15, 17, 0.5);
   padding: 10px;
   border-radius: 5px;
   font-size: 16px;
-  width: 80%;
+  width: 90%;
   flex-direction: row;
   padding: 5px;
   display: flex;
@@ -39,7 +34,7 @@
 
 #ByGenero {
   border-radius: 20px;
-  background-color: rgb(0, 0, 0); 
+  background-color: rgb(0, 0, 0);
   width: fit-content;
   margin-right: 1px;
   color: rgb(193, 158, 158);
@@ -65,7 +60,71 @@
   color: white;
 }
 
-@media screen and (max-width: 800px) {
+.mobile-menu {
+  display: block;
+  padding: px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.mobile-menu a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+
+  display: flex;
+}
+
+.mobile-menu a:hover {
+  text-decoration: underline;
+}
+
+.close-button {
+  position: relative;
+  font-size: 15px;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
+.menu-icon {
+  font-size: 15px;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: none;
+  font-size: 15px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .NavBar {
+    display: none;
+  }
+  .menu-icon {
+    display: flex;
+  }
+  .close-button {
+    display: flex;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 500px) {
   #mobile-search-bar {
     display: block;
     flex: 1;

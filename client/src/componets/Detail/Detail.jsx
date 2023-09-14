@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import style from "./Detail.module.css";
+import "./Detail.css";
 import { useEffect, useState } from "react";
 import Loader from "../Loader/loader";
 import axios from "axios"
@@ -24,18 +24,18 @@ const Detail = () => {
     return <Loader />;
   }
     return (
-      <div className={style.container}>
+      <div className={"container1"}>
         <Link to="/home">
-          <button className={style.btn}>home</button>
+          <button className={"btn1"}>home</button>
         </Link>
-        <img className={style.imagen} src={videoGameDetail.background_image  || videoGameDetail.image } />
-        <h1 className={style.name}>name : "{videoGameDetail.name}"</h1>
-        <h1 className={style.name}>description : "{videoGameDetail.description}"</h1>
-        <h1 className={style.name}>releaseDate : "{videoGameDetail.releaseDate}"</h1>
-        <h1 className={style.name}>rating : "{videoGameDetail.rating}"</h1>
-        <h1 className={style.name}>platforms: "{videoGameDetail.platforms}"</h1>
-        <h1 className={style.name}>genero: "{videoGameDetail.genres}"</h1>
-        <h1 className={style.name}>Id : "{videoGameDetail.id}"</h1>
+        <img className={"imagen1"} src={videoGameDetail.background_image  || videoGameDetail.image } />
+        <h1 className={"name1"}>name : "{videoGameDetail.name}"</h1>
+        <h1 className={"name1"}>description : "{videoGameDetail.description}"</h1>
+        <h1 className={"name1"}>releaseDate : "{videoGameDetail.releaseDate}"</h1>
+        <h1 className={"name1"}>rating : "{videoGameDetail.rating}"</h1>
+        <h1 className={"name1"}>platforms: "{videoGameDetail.platforms}"</h1>
+        <h1 className={"name1"}>genero: "{videoGameDetail.genre}"</h1>
+        <h1 className={"name1"}>Id : "{videoGameDetail.id}"</h1>
       </div>
     );
 

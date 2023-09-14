@@ -25,7 +25,7 @@ const Search = () => {
     const found = allVideogames.filter((videogames) =>
       videogames.name.toLowerCase().includes(search.toLowerCase())
     );
-    dispatch(searchVideogamePerName(found));
+      dispatch(searchVideogamePerName(found));
   };
   // console.log(search);
 
@@ -55,16 +55,18 @@ export default Search;
 /////////////                                       \\\\\\\\\\\\\\\\\\\\\\\
 // import { useState} from "react";
 // import { useDispatch } from "react-redux";
-// import {getByNameApi} from "../../redux/actions";
+// import {cleaner, getByNameApi} from "../../redux/actions";
 // import "./SearchBar.css";
 
 // const Search = () => {
 //   const dispatch = useDispatch();
 //   const [search, setSearch] = useState("");
-
 //   const handleChange = (event) => {
 //     setSearch(event.target.value);
 //     handleSearch();
+//     if(search === ""){
+//     dispatch(cleaner)
+//     }
 //   };
 
 //   const handleSearch = () => {
@@ -87,6 +89,10 @@ export default Search;
 // };
 
 // export default Search;
+
+
+
+
 
 ////////// eventoo controlador de enter////////
 ///

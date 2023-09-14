@@ -4,6 +4,7 @@ const validations = (form) => {
   if (!form.name) {
     errors.name = "El nombre es obligatorio.";
   }
+  
 
   if (!form.description) {
     errors.description = "La descripción es obligatoria.";

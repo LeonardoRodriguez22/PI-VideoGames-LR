@@ -13,7 +13,6 @@ const Cards = ({ Character }) => {
             image={character.image}
             description={character.description}
             releaseDate={character.releaseDate}
-            rating={character.rating}
             platforms={character.platforms}
             genre={character.genre}
           />

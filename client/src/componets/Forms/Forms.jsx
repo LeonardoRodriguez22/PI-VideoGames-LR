@@ -4,7 +4,7 @@ import validations from "../Validations/validations";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getAllCharacters } from "../../redux/actions";
+import { getAllCharacters} from "../../redux/actions";
 import { Link } from "react-router-dom";
 
 const Form = () => {
@@ -28,6 +28,7 @@ const Form = () => {
     platforms: "",
     releasedData: "",
   });
+  
 
   const [selectedgenres, setSelectedgenres] = useState([]); 
 
@@ -64,7 +65,8 @@ const Form = () => {
     
     axios
     .post("http://localhost:3000/videogames/post", form)
-    .then((res) => alert("tu juego a sido creado con exito"))
+    .then((res) => alert("👌👌tu juego a sido creado con exito👌👌"))
+    .then((res)=>  dispatch(getAllCharacters()))
     .catch((error) => alert(error));
     
     setForm({
@@ -75,10 +77,10 @@ const Form = () => {
       releaseDate: "",
     });
     
+    
     setTimeout(function() {
       navigate("/home")
-      dispatch(getAllCharacters());
-      }, 4000);
+      }, 2000);
   };
   
  
@@ -164,6 +166,9 @@ const Form = () => {
           onChange={changeHandler}
           placeholder="Enter the url of your image"
         ></input>
+        {form.image && (
+          <img src={form.image} alt={form.name} className="imagePreview" />
+        )}
       </div>
       <button className="formButton" type="submit" disabled={!isFormValid()}>
         Crear Juego
